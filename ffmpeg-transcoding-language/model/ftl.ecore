@@ -3,28 +3,30 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ftl" nsURI="http://www.example.org/ftl" nsPrefix="ftl">
   <eClassifiers xsi:type="ecore:EClass" name="Program" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="streams" upperBound="-1"
-        eType="#//Stream"/>
+        eType="#//Stream" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transforms" upperBound="-1"
-        eType="#//Transform"/>
+        eType="#//Transform" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="In" eSuperTypes="#//Stream"/>
   <eClassifiers xsi:type="ecore:EClass" name="Out" eSuperTypes="#//OutputStream"/>
   <eClassifiers xsi:type="ecore:EClass" name="Temp" eSuperTypes="#//OutputStream"/>
   <eClassifiers xsi:type="ecore:EClass" name="Stream" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transform">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
-        upperBound="-1" eType="#//Stream"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" upperBound="-1"
-        eType="#//Instruction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
-        eType="#//OutputStream"/>
+        eType="#//Instruction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputStream" abstract="true" eSuperTypes="#//Stream"/>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sepia" eSuperTypes="#//Instruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Blur" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Blur" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="frames" eSuperTypes="#//Instruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

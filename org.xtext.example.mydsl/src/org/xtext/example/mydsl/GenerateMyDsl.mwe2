@@ -33,7 +33,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "org.xtext.example.mydsl.MyDsl"
 			fileExtensions = "mydsl"
-			referencedResource = "platform:/resource/ffmpeg-transcoding-language/model/ftl.genmodel"
+			referencedResource = "file:/D:/Documents/5INFO/IDM/ffmpeg-transcoding-language/model/ftl.genmodel"//"platform:/resource/ffmpeg-transcoding-language/model/ftl.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

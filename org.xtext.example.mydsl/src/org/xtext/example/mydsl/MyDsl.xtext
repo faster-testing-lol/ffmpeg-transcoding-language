@@ -32,7 +32,7 @@ Temp returns Temp:
 
 Transform returns Transform:
 	output=STRING '=' '{'
-		(instructions+=Instruction)*
+		(instruction+=Instruction)*
 	'}'
 ;
 
