@@ -70,6 +70,7 @@ public abstract class StreamImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPath() {
 		return path;
 	}
@@ -79,6 +80,7 @@ public abstract class StreamImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPath(String newPath) {
 		String oldPath = path;
 		path = newPath;

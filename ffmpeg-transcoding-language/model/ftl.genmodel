@@ -28,5 +28,6 @@
     <genClasses ecoreClass="ftl.ecore#//Sepia"/>
     <genClasses ecoreClass="ftl.ecore#//Blur"/>
     <genClasses ecoreClass="ftl.ecore#//frames"/>
+    <genClasses ecoreClass="ftl.ecore#//Video"/>
   </genPackages>
 </genmodel:GenModel>

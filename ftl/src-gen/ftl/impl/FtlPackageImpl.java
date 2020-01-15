@@ -14,6 +14,7 @@ import ftl.Sepia;
 import ftl.Stream;
 import ftl.Temp;
 import ftl.Transform;
+import ftl.Video;
 import ftl.frames;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -108,6 +109,13 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	private EClass framesEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass videoEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -176,6 +184,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProgram() {
 		return programEClass;
 	}
@@ -185,6 +194,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProgram_Streams() {
 		return (EReference) programEClass.getEStructuralFeatures().get(0);
 	}
@@ -194,6 +204,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProgram_Transforms() {
 		return (EReference) programEClass.getEStructuralFeatures().get(1);
 	}
@@ -203,6 +214,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIn() {
 		return inEClass;
 	}
@@ -212,6 +224,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOut() {
 		return outEClass;
 	}
@@ -221,6 +234,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemp() {
 		return tempEClass;
 	}
@@ -230,6 +244,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStream() {
 		return streamEClass;
 	}
@@ -239,6 +254,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStream_Path() {
 		return (EAttribute) streamEClass.getEStructuralFeatures().get(0);
 	}
@@ -248,6 +264,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTransform() {
 		return transformEClass;
 	}
@@ -257,6 +274,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTransform_Inputs() {
 		return (EReference) transformEClass.getEStructuralFeatures().get(0);
 	}
@@ -266,6 +284,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTransform_Instruction() {
 		return (EReference) transformEClass.getEStructuralFeatures().get(1);
 	}
@@ -275,6 +294,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTransform_Output() {
 		return (EReference) transformEClass.getEStructuralFeatures().get(2);
 	}
@@ -284,6 +304,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOutputStream() {
 		return outputStreamEClass;
 	}
@@ -293,6 +314,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInstruction() {
 		return instructionEClass;
 	}
@@ -302,6 +324,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSepia() {
 		return sepiaEClass;
 	}
@@ -311,6 +334,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBlur() {
 		return blurEClass;
 	}
@@ -320,6 +344,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getframes() {
 		return framesEClass;
 	}
@@ -329,6 +354,17 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EClass getVideo() {
+		return videoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FtlFactory getFtlFactory() {
 		return (FtlFactory) getEFactoryInstance();
 	}
@@ -380,6 +416,8 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		blurEClass = createEClass(BLUR);
 
 		framesEClass = createEClass(FRAMES);
+
+		videoEClass = createEClass(VIDEO);
 	}
 
 	/**
@@ -418,6 +456,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		sepiaEClass.getESuperTypes().add(this.getInstruction());
 		blurEClass.getESuperTypes().add(this.getInstruction());
 		framesEClass.getESuperTypes().add(this.getInstruction());
+		videoEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -461,6 +500,8 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		initEClass(blurEClass, Blur.class, "Blur", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(framesEClass, frames.class, "frames", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

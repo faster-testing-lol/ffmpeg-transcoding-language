@@ -455,6 +455,34 @@ public interface FtlPackage extends EPackage {
 	int FRAMES_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ftl.impl.VideoImpl <em>Video</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.VideoImpl
+	 * @see ftl.impl.FtlPackageImpl#getVideo()
+	 * @generated
+	 */
+	int VIDEO = 11;
+
+	/**
+	 * The number of structural features of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link ftl.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -629,6 +657,16 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getframes();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Video <em>Video</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video</em>'.
+	 * @see ftl.Video
+	 * @generated
+	 */
+	EClass getVideo();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -810,6 +848,16 @@ public interface FtlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FRAMES = eINSTANCE.getframes();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.VideoImpl <em>Video</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.VideoImpl
+		 * @see ftl.impl.FtlPackageImpl#getVideo()
+		 * @generated
+		 */
+		EClass VIDEO = eINSTANCE.getVideo();
 
 	}
 

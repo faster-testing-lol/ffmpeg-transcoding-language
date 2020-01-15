@@ -76,6 +76,7 @@ public abstract class ProgramImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Stream> getStreams() {
 		if (streams == null) {
 			streams = new EObjectResolvingEList<Stream>(Stream.class, this, FtlPackage.PROGRAM__STREAMS);
@@ -88,6 +89,7 @@ public abstract class ProgramImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Transform> getTransforms() {
 		if (transforms == null) {
 			transforms = new EObjectResolvingEList<Transform>(Transform.class, this, FtlPackage.PROGRAM__TRANSFORMS);

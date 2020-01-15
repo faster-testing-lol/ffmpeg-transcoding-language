@@ -69,6 +69,8 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 			return createBlur();
 		case FtlPackage.FRAMES:
 			return createframes();
+		case FtlPackage.VIDEO:
+			return createVideo();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +81,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public In createIn() {
 		InImpl in = new InImpl();
 		return in;
@@ -89,6 +92,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Out createOut() {
 		OutImpl out = new OutImpl();
 		return out;
@@ -99,6 +103,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Temp createTemp() {
 		TempImpl temp = new TempImpl();
 		return temp;
@@ -109,6 +114,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Transform createTransform() {
 		TransformImpl transform = new TransformImpl();
 		return transform;
@@ -119,6 +125,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sepia createSepia() {
 		SepiaImpl sepia = new SepiaImpl();
 		return sepia;
@@ -129,6 +136,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Blur createBlur() {
 		BlurImpl blur = new BlurImpl();
 		return blur;
@@ -139,6 +147,7 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public frames createframes() {
 		framesImpl frames = new framesImpl();
 		return frames;
@@ -149,6 +158,18 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Video createVideo() {
+		VideoImpl video = new VideoImpl();
+		return video;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FtlPackage getFtlPackage() {
 		return (FtlPackage) getEPackage();
 	}

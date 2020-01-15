@@ -92,6 +92,7 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Stream> getInputs() {
 		if (inputs == null) {
 			inputs = new EObjectResolvingEList<Stream>(Stream.class, this, FtlPackage.TRANSFORM__INPUTS);
@@ -104,6 +105,7 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Instruction> getInstruction() {
 		if (instruction == null) {
 			instruction = new EObjectResolvingEList<Instruction>(Instruction.class, this,
@@ -117,6 +119,7 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OutputStream getOutput() {
 		if (output != null && output.eIsProxy()) {
 			InternalEObject oldOutput = (InternalEObject) output;
@@ -144,6 +147,7 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOutput(OutputStream newOutput) {
 		OutputStream oldOutput = output;
 		output = newOutput;

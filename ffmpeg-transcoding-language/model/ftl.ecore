@@ -26,4 +26,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sepia" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Blur" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="frames" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//Instruction"/>
 </ecore:EPackage>
