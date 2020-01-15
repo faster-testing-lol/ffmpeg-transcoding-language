@@ -3,10 +3,22 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterators;
+import ftl.In;
+import ftl.Instruction;
+import ftl.Program;
+import ftl.Stream;
+import ftl.Transform;
+import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -16,6 +28,54 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 @SuppressWarnings("all")
 public class MyDslGenerator extends AbstractGenerator {
   @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  public void doGenerate(final Resource res, final IFileSystemAccess2 fsa, final IGeneratorContext ctx) {
+    fsa.generateFile(res.getURI().trimFileExtension().appendFileExtension("sh").lastSegment(), 
+      this.compile(IterableExtensions.<Program>head(IteratorExtensions.<Program>toIterable(Iterators.<Program>filter(res.getAllContents(), Program.class)))).toString());
+  }
+  
+  protected CharSequence _compile(final Instruction inst) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("Pas content ");
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Program program) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Stream> _streams = program.getStreams();
+      for(final Stream stream : _streams) {
+        Object _compile = this.compile(stream);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Transform> _transforms = program.getTransforms();
+      for(final Transform transform : _transforms) {
+        Object _compile_1 = this.compile(transform);
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final In in) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field name is undefined for the type In");
+  }
+  
+  public CharSequence compile(final EObject in) {
+    if (in instanceof In) {
+      return _compile((In)in);
+    } else if (in instanceof Instruction) {
+      return _compile((Instruction)in);
+    } else if (in instanceof Program) {
+      return _compile((Program)in);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(in).toString());
+    }
   }
 }

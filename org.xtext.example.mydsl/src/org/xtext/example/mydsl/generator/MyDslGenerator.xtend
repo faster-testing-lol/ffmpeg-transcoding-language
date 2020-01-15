@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import ftl.*
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +16,23 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class MyDslGenerator extends AbstractGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+	override void doGenerate(Resource res, IFileSystemAccess2 fsa, IGeneratorContext ctx) {
+		fsa.generateFile(res.URI.trimFileExtension.appendFileExtension("sh").lastSegment,
+			res.allContents.filter(Program).toIterable.head.compile.toString)
 	}
+	
+	def dispatch compile(Instruction inst) ''' Pas content '''
+	
+	def dispatch compile(Program program) '''
+	«FOR stream : program.streams»
+		«stream.compile»
+	«ENDFOR»
+	«FOR transform : program.transforms»
+		«transform.compile»
+	«ENDFOR»
+	'''
+	
+	def dispatch compile(In in) '''
+	«in.name» = "«in.path»"
+	'''
 }
