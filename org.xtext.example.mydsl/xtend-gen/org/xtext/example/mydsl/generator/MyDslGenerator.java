@@ -7,8 +7,10 @@ import com.google.common.collect.Iterators;
 import ftl.In;
 import ftl.Instruction;
 import ftl.Program;
+import ftl.Sepia;
 import ftl.Stream;
 import ftl.Transform;
+import ftl.Video;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -62,17 +64,66 @@ public class MyDslGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _compile(final In in) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field name is undefined for the type In");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = in.getName();
+    _builder.append(_name);
+    _builder.append(" = \"");
+    String _path = in.getPath();
+    _builder.append(_path);
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Transform transform) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("ffmpeg ");
+    String _output = transform.getOutput();
+    _builder.append(_output);
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Instruction> _instruction = transform.getInstruction();
+      for(final Instruction instruction : _instruction) {
+        Object _compile = this.compile(instruction);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Sepia sepia) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Video video) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("-i ");
+    String _input = video.getInput();
+    _builder.append(_input);
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final EObject in) {
     if (in instanceof In) {
       return _compile((In)in);
+    } else if (in instanceof Sepia) {
+      return _compile((Sepia)in);
+    } else if (in instanceof Video) {
+      return _compile((Video)in);
     } else if (in instanceof Instruction) {
       return _compile((Instruction)in);
     } else if (in instanceof Program) {
       return _compile((Program)in);
+    } else if (in instanceof Transform) {
+      return _compile((Transform)in);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(in).toString());

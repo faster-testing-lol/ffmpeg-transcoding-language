@@ -33,6 +33,22 @@ class MyDslGenerator extends AbstractGenerator {
 	'''
 	
 	def dispatch compile(In in) '''
-	«in.name» = "«in.path»"
+	«in.name» = "«in.path»";
+	
+	'''
+	
+	def dispatch compile(Transform transform) '''
+	ffmpeg «transform.output» 
+	«FOR instruction : transform.instruction»
+		«instruction.compile»
+	«ENDFOR»
+	'''
+	
+	def dispatch compile(Sepia sepia) '''
+	colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0
+	'''
+	
+	def dispatch compile(Video video) '''
+	-i «video.input» 
 	'''
 }

@@ -10,6 +10,7 @@ Program returns Program:
 	(transforms+=Transform)*
 ;
 
+
 Stream returns Stream:
 	In | OutputStream
 ;
