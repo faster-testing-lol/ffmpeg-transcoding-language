@@ -22,5 +22,4 @@ Export-Package: org.xtext.example.mydsl.parser.antlr.internal,
  org.xtext.example.mydsl,
  org.xtext.example.mydsl.serializer,
  org.xtext.example.mydsl.parser.antlr,
- org.xtext.example.mydsl.formatting2
 Import-Package: org.apache.log4j
