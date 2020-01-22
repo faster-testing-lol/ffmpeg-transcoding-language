@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.ftl
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.ftl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.ftl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ftl,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.ftl.serializer,
+ org.xtext.ftl.services,
+ org.xtext.ftl.scoping,
+ org.xtext.ftl.formatting2,
+ org.xtext.ftl,
+ org.xtext.ftl.parser.antlr.internal,
+ org.xtext.ftl.parser.antlr,
+ org.xtext.ftl.validation,
+ org.xtext.ftl.generator
+Import-Package: org.apache.log4j
