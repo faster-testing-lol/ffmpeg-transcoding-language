@@ -7,13 +7,14 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import ftl.*
 
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
-class MyDslGenerator extends AbstractGenerator {
+class FTLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource res, IFileSystemAccess2 fsa, IGeneratorContext ctx) {
 		fsa.generateFile(res.URI.trimFileExtension.appendFileExtension("sh").lastSegment,
@@ -37,17 +38,18 @@ class MyDslGenerator extends AbstractGenerator {
 	'''
 	
 	def dispatch compile(Transform transform) '''
-	ffmpeg «transform.output» 
+	ffmpeg «transform.output»  \
 	«FOR instruction : transform.instruction»
 		«instruction.compile»
 	«ENDFOR»
+	;
 	'''
 	
 	def dispatch compile(Sepia sepia) '''
-	colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0
+	colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0 \
 	'''
 	
 	def dispatch compile(Video video) '''
-	-i «video.input» 
+	-i «video.input»  \
 	'''
 }

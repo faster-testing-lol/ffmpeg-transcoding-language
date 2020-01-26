@@ -10,7 +10,8 @@
       <!-- @generated ftl -->
       <package
             uri="http://www.example.org/ftl"
-            class="ftl.FtlPackage"/>
+            class="ftl.FtlPackage"
+            genModel="model/ftl.genmodel"/>
    </extension>
 
 </plugin>

@@ -22,6 +22,15 @@ public interface FtlFactory extends EFactory {
 	FtlFactory eINSTANCE = ftl.impl.FtlFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Program</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Program</em>'.
+	 * @generated
+	 */
+	Program createProgram();
+
+	/**
 	 * Returns a new object of class '<em>In</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,7 +3,6 @@
 	<name>org.xtext.ftl</name>
 	<comment></comment>
 	<projects>
-		<project>ffmpeg-transcoding-language</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

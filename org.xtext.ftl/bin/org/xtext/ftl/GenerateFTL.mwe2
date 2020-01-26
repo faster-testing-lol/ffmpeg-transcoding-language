@@ -33,13 +33,13 @@ Workflow {
 		language = StandardLanguage {
 			name = "org.xtext.ftl.FTL"
 			fileExtensions = "ftl"
-			referencedResource = "file://D:/Documents/5INFO/IDM2/ffmpeg-transcoding-language/model/ftl.genmodel"
+			referencedResource = "platform:/resource/ftl/model/ftl.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
-			formatter = {
+			/*formatter = {
 				generateStub = true
-			}
+			}*/
 
 			serializer = {
 				generateStub = false

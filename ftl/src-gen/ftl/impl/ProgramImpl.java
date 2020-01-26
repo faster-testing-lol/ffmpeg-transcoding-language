@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class ProgramImpl extends MinimalEObjectImpl.Container implements Program {
+public class ProgramImpl extends MinimalEObjectImpl.Container implements Program {
 	/**
 	 * The cached value of the '{@link #getStreams() <em>Streams</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see ftl.FtlPackage#getProgram()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Program extends EObject {
