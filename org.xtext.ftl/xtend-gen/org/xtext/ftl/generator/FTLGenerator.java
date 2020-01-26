@@ -78,37 +78,42 @@ public class FTLGenerator extends AbstractGenerator {
   
   protected CharSequence _compile(final Transform transform) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("ffmpeg ");
-    String _output = transform.getOutput();
-    _builder.append(_output);
-    _builder.append("  \\");
-    _builder.newLineIfNotEmpty();
+    _builder.append("ffmpeg -y -filter_complex \"");
+    _builder.newLine();
     {
       EList<Instruction> _instruction = transform.getInstruction();
+      boolean _hasElements = false;
       for(final Instruction instruction : _instruction) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(",", "");
+        }
         Object _compile = this.compile(instruction);
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\" ");
+    String _output = transform.getOutput();
+    _builder.append(_output);
     _builder.append(";");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   protected CharSequence _compile(final Sepia sepia) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0 \\");
+    _builder.append("colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0");
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _compile(final Video video) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("-i ");
+    _builder.append("movie=");
     String _input = video.getInput();
     _builder.append(_input);
-    _builder.append("  \\");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
