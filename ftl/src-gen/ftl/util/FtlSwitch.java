@@ -132,6 +132,42 @@ public class FtlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case FtlPackage.GRAYSCALE: {
+			Grayscale grayscale = (Grayscale) theEObject;
+			T result = caseGrayscale(grayscale);
+			if (result == null)
+				result = caseInstruction(grayscale);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.REVERSE: {
+			Reverse reverse = (Reverse) theEObject;
+			T result = caseReverse(reverse);
+			if (result == null)
+				result = caseInstruction(reverse);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.SCALE: {
+			Scale scale = (Scale) theEObject;
+			T result = caseScale(scale);
+			if (result == null)
+				result = caseInstruction(scale);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.SHARPEN: {
+			Sharpen sharpen = (Sharpen) theEObject;
+			T result = caseSharpen(sharpen);
+			if (result == null)
+				result = caseInstruction(sharpen);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -254,6 +290,66 @@ public class FtlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAudio(Audio object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grayscale</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grayscale</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGrayscale(Grayscale object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reverse</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reverse</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReverse(Reverse object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scale</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scale</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScale(Scale object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sharpen</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sharpen</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSharpen(Sharpen object) {
 		return null;
 	}
 

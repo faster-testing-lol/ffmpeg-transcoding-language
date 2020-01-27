@@ -7,8 +7,12 @@ import com.google.inject.Inject;
 import ftl.Audio;
 import ftl.Blur;
 import ftl.FtlPackage;
+import ftl.Grayscale;
 import ftl.Program;
+import ftl.Reverse;
+import ftl.Scale;
 import ftl.Sepia;
+import ftl.Sharpen;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Set;
@@ -43,11 +47,23 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FtlPackage.BLUR:
 				sequence_Blur(context, (Blur) semanticObject); 
 				return; 
+			case FtlPackage.GRAYSCALE:
+				sequence_Grayscale(context, (Grayscale) semanticObject); 
+				return; 
 			case FtlPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
 				return; 
+			case FtlPackage.REVERSE:
+				sequence_Reverse(context, (Reverse) semanticObject); 
+				return; 
+			case FtlPackage.SCALE:
+				sequence_Scale(context, (Scale) semanticObject); 
+				return; 
 			case FtlPackage.SEPIA:
 				sequence_Sepia(context, (Sepia) semanticObject); 
+				return; 
+			case FtlPackage.SHARPEN:
+				sequence_Sharpen(context, (Sharpen) semanticObject); 
 				return; 
 			case FtlPackage.TRANSFORM:
 				sequence_Transform(context, (Transform) semanticObject); 
@@ -100,6 +116,19 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Grayscale
+	 *     Grayscale returns Grayscale
+	 *
+	 * Constraint:
+	 *     {Grayscale}
+	 */
+	protected void sequence_Grayscale(ISerializationContext context, Grayscale semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Program returns Program
 	 *
 	 * Constraint:
@@ -112,6 +141,38 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Reverse
+	 *     Reverse returns Reverse
+	 *
+	 * Constraint:
+	 *     {Reverse}
+	 */
+	protected void sequence_Reverse(ISerializationContext context, Reverse semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Scale
+	 *     Scale returns Scale
+	 *
+	 * Constraint:
+	 *     factor=Float
+	 */
+	protected void sequence_Scale(ISerializationContext context, Scale semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.SCALE__FACTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.SCALE__FACTOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScaleAccess().getFactorFloatParserRuleCall_1_0(), semanticObject.getFactor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Instruction returns Sepia
 	 *     Sepia returns Sepia
 	 *
@@ -119,6 +180,19 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     {Sepia}
 	 */
 	protected void sequence_Sepia(ISerializationContext context, Sepia semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Sharpen
+	 *     Sharpen returns Sharpen
+	 *
+	 * Constraint:
+	 *     {Sharpen}
+	 */
+	protected void sequence_Sharpen(ISerializationContext context, Sharpen semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

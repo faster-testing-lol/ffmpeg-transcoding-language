@@ -5,9 +5,13 @@ package org.xtext.ftl.generator;
 
 import com.google.common.collect.Iterators;
 import ftl.Audio;
+import ftl.Grayscale;
 import ftl.Instruction;
 import ftl.Program;
+import ftl.Reverse;
+import ftl.Scale;
 import ftl.Sepia;
+import ftl.Sharpen;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Arrays;
@@ -87,6 +91,13 @@ public class FTLGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  protected CharSequence _compile(final Grayscale grayscale) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("hue=s=0");
+    _builder.newLine();
+    return _builder;
+  }
+  
   protected CharSequence _compile(final Video video) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("movie=");
@@ -105,11 +116,46 @@ public class FTLGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  protected CharSequence _compile(final Sharpen sharpen) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("convolution=\\\"0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0\\\"");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Reverse reverse) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("reverse");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Scale scale) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("scale=w=");
+    float _factor = scale.getFactor();
+    _builder.append(_factor);
+    _builder.append("*iw:h=");
+    float _factor_1 = scale.getFactor();
+    _builder.append(_factor_1);
+    _builder.append("*ih");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence compile(final EObject audio) {
     if (audio instanceof Audio) {
       return _compile((Audio)audio);
+    } else if (audio instanceof Grayscale) {
+      return _compile((Grayscale)audio);
+    } else if (audio instanceof Reverse) {
+      return _compile((Reverse)audio);
+    } else if (audio instanceof Scale) {
+      return _compile((Scale)audio);
     } else if (audio instanceof Sepia) {
       return _compile((Sepia)audio);
+    } else if (audio instanceof Sharpen) {
+      return _compile((Sharpen)audio);
     } else if (audio instanceof Video) {
       return _compile((Video)audio);
     } else if (audio instanceof Instruction) {

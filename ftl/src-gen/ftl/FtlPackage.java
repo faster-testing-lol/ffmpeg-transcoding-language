@@ -335,6 +335,127 @@ public interface FtlPackage extends EPackage {
 	int AUDIO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ftl.impl.GrayscaleImpl <em>Grayscale</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.GrayscaleImpl
+	 * @see ftl.impl.FtlPackageImpl#getGrayscale()
+	 * @generated
+	 */
+	int GRAYSCALE = 8;
+
+	/**
+	 * The number of structural features of the '<em>Grayscale</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAYSCALE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Grayscale</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAYSCALE_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.ReverseImpl <em>Reverse</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.ReverseImpl
+	 * @see ftl.impl.FtlPackageImpl#getReverse()
+	 * @generated
+	 */
+	int REVERSE = 9;
+
+	/**
+	 * The number of structural features of the '<em>Reverse</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REVERSE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Reverse</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REVERSE_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.ScaleImpl <em>Scale</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.ScaleImpl
+	 * @see ftl.impl.FtlPackageImpl#getScale()
+	 * @generated
+	 */
+	int SCALE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALE__FACTOR = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scale</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Scale</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALE_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.SharpenImpl <em>Sharpen</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.SharpenImpl
+	 * @see ftl.impl.FtlPackageImpl#getSharpen()
+	 * @generated
+	 */
+	int SHARPEN = 11;
+
+	/**
+	 * The number of structural features of the '<em>Sharpen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARPEN_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Sharpen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARPEN_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link ftl.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,6 +600,57 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAudio_Input();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Grayscale <em>Grayscale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Grayscale</em>'.
+	 * @see ftl.Grayscale
+	 * @generated
+	 */
+	EClass getGrayscale();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Reverse <em>Reverse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reverse</em>'.
+	 * @see ftl.Reverse
+	 * @generated
+	 */
+	EClass getReverse();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Scale <em>Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scale</em>'.
+	 * @see ftl.Scale
+	 * @generated
+	 */
+	EClass getScale();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.Scale#getFactor <em>Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Factor</em>'.
+	 * @see ftl.Scale#getFactor()
+	 * @see #getScale()
+	 * @generated
+	 */
+	EAttribute getScale_Factor();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Sharpen <em>Sharpen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sharpen</em>'.
+	 * @see ftl.Sharpen
+	 * @generated
+	 */
+	EClass getSharpen();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -630,6 +802,54 @@ public interface FtlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUDIO__INPUT = eINSTANCE.getAudio_Input();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.GrayscaleImpl <em>Grayscale</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.GrayscaleImpl
+		 * @see ftl.impl.FtlPackageImpl#getGrayscale()
+		 * @generated
+		 */
+		EClass GRAYSCALE = eINSTANCE.getGrayscale();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.ReverseImpl <em>Reverse</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.ReverseImpl
+		 * @see ftl.impl.FtlPackageImpl#getReverse()
+		 * @generated
+		 */
+		EClass REVERSE = eINSTANCE.getReverse();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.ScaleImpl <em>Scale</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.ScaleImpl
+		 * @see ftl.impl.FtlPackageImpl#getScale()
+		 * @generated
+		 */
+		EClass SCALE = eINSTANCE.getScale();
+
+		/**
+		 * The meta object literal for the '<em><b>Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCALE__FACTOR = eINSTANCE.getScale_Factor();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.SharpenImpl <em>Sharpen</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.SharpenImpl
+		 * @see ftl.impl.FtlPackageImpl#getSharpen()
+		 * @generated
+		 */
+		EClass SHARPEN = eINSTANCE.getSharpen();
 
 	}
 

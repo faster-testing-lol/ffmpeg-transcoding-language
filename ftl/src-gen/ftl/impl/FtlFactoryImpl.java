@@ -69,6 +69,14 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 			return createVideo();
 		case FtlPackage.AUDIO:
 			return createAudio();
+		case FtlPackage.GRAYSCALE:
+			return createGrayscale();
+		case FtlPackage.REVERSE:
+			return createReverse();
+		case FtlPackage.SCALE:
+			return createScale();
+		case FtlPackage.SHARPEN:
+			return createSharpen();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +157,50 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	public Audio createAudio() {
 		AudioImpl audio = new AudioImpl();
 		return audio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Grayscale createGrayscale() {
+		GrayscaleImpl grayscale = new GrayscaleImpl();
+		return grayscale;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Reverse createReverse() {
+		ReverseImpl reverse = new ReverseImpl();
+		return reverse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Scale createScale() {
+		ScaleImpl scale = new ScaleImpl();
+		return scale;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Sharpen createSharpen() {
+		SharpenImpl sharpen = new SharpenImpl();
+		return sharpen;
 	}
 
 	/**

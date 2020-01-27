@@ -6,9 +6,13 @@ import ftl.Audio;
 import ftl.Blur;
 import ftl.FtlFactory;
 import ftl.FtlPackage;
+import ftl.Grayscale;
 import ftl.Instruction;
 import ftl.Program;
+import ftl.Reverse;
+import ftl.Scale;
 import ftl.Sepia;
+import ftl.Sharpen;
 import ftl.Transform;
 import ftl.Video;
 import ftl.frames;
@@ -82,6 +86,34 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	private EClass audioEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass grayscaleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass reverseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scaleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sharpenEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -293,6 +325,56 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getGrayscale() {
+		return grayscaleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getReverse() {
+		return reverseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getScale() {
+		return scaleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getScale_Factor() {
+		return (EAttribute) scaleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSharpen() {
+		return sharpenEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FtlFactory getFtlFactory() {
 		return (FtlFactory) getEFactoryInstance();
 	}
@@ -338,6 +420,15 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 
 		audioEClass = createEClass(AUDIO);
 		createEAttribute(audioEClass, AUDIO__INPUT);
+
+		grayscaleEClass = createEClass(GRAYSCALE);
+
+		reverseEClass = createEClass(REVERSE);
+
+		scaleEClass = createEClass(SCALE);
+		createEAttribute(scaleEClass, SCALE__FACTOR);
+
+		sharpenEClass = createEClass(SHARPEN);
 	}
 
 	/**
@@ -374,6 +465,10 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		framesEClass.getESuperTypes().add(this.getInstruction());
 		videoEClass.getESuperTypes().add(this.getInstruction());
 		audioEClass.getESuperTypes().add(this.getInstruction());
+		grayscaleEClass.getESuperTypes().add(this.getInstruction());
+		reverseEClass.getESuperTypes().add(this.getInstruction());
+		scaleEClass.getESuperTypes().add(this.getInstruction());
+		sharpenEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -407,6 +502,17 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		initEClass(audioEClass, Audio.class, "Audio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAudio_Input(), ecorePackage.getEString(), "input", null, 0, 1, Audio.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(grayscaleEClass, Grayscale.class, "Grayscale", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(reverseEClass, Reverse.class, "Reverse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(scaleEClass, Scale.class, "Scale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScale_Factor(), ecorePackage.getEFloat(), "factor", "1.0", 1, 1, Scale.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sharpenEClass, Sharpen.class, "Sharpen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

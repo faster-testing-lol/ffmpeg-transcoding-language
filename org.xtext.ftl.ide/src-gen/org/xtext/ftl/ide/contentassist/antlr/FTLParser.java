@@ -33,18 +33,24 @@ public class FTLParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, FTLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getInstructionAccess().getAlternatives_0(), "rule__Instruction__Alternatives_0");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
+			builder.put(grammarAccess.getFloatAccess().getGroup(), "rule__Float__Group__0");
 			builder.put(grammarAccess.getTransformAccess().getGroup(), "rule__Transform__Group__0");
 			builder.put(grammarAccess.getInstructionAccess().getGroup(), "rule__Instruction__Group__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup(), "rule__Video__Group__0");
 			builder.put(grammarAccess.getAudioAccess().getGroup(), "rule__Audio__Group__0");
 			builder.put(grammarAccess.getSepiaAccess().getGroup(), "rule__Sepia__Group__0");
 			builder.put(grammarAccess.getBlurAccess().getGroup(), "rule__Blur__Group__0");
+			builder.put(grammarAccess.getGrayscaleAccess().getGroup(), "rule__Grayscale__Group__0");
+			builder.put(grammarAccess.getScaleAccess().getGroup(), "rule__Scale__Group__0");
+			builder.put(grammarAccess.getSharpenAccess().getGroup(), "rule__Sharpen__Group__0");
+			builder.put(grammarAccess.getReverseAccess().getGroup(), "rule__Reverse__Group__0");
 			builder.put(grammarAccess.getProgramAccess().getTransformsAssignment_1(), "rule__Program__TransformsAssignment_1");
 			builder.put(grammarAccess.getTransformAccess().getOutputAssignment_0(), "rule__Transform__OutputAssignment_0");
 			builder.put(grammarAccess.getTransformAccess().getInstructionAssignment_3(), "rule__Transform__InstructionAssignment_3");
 			builder.put(grammarAccess.getVideoAccess().getInputAssignment_1(), "rule__Video__InputAssignment_1");
 			builder.put(grammarAccess.getAudioAccess().getInputAssignment_1(), "rule__Audio__InputAssignment_1");
 			builder.put(grammarAccess.getBlurAccess().getRadiusAssignment_1(), "rule__Blur__RadiusAssignment_1");
+			builder.put(grammarAccess.getScaleAccess().getFactorAssignment_1(), "rule__Scale__FactorAssignment_1");
 		}
 	}
 	

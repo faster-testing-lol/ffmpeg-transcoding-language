@@ -22,4 +22,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Audio" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Grayscale" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reverse" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scale" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sharpen" eSuperTypes="#//Instruction"/>
 </ecore:EPackage>

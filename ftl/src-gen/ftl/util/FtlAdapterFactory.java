@@ -107,6 +107,26 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseGrayscale(Grayscale object) {
+			return createGrayscaleAdapter();
+		}
+
+		@Override
+		public Adapter caseReverse(Reverse object) {
+			return createReverseAdapter();
+		}
+
+		@Override
+		public Adapter caseScale(Scale object) {
+			return createScaleAdapter();
+		}
+
+		@Override
+		public Adapter caseSharpen(Sharpen object) {
+			return createSharpenAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -234,6 +254,62 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAudioAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Grayscale <em>Grayscale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Grayscale
+	 * @generated
+	 */
+	public Adapter createGrayscaleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Reverse <em>Reverse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Reverse
+	 * @generated
+	 */
+	public Adapter createReverseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Scale <em>Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Scale
+	 * @generated
+	 */
+	public Adapter createScaleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Sharpen <em>Sharpen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Sharpen
+	 * @generated
+	 */
+	public Adapter createSharpenAdapter() {
 		return null;
 	}
 

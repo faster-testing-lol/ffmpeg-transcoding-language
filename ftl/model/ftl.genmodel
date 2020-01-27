@@ -27,5 +27,11 @@
     <genClasses ecoreClass="ftl.ecore#//Audio">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Audio/input"/>
     </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Grayscale"/>
+    <genClasses ecoreClass="ftl.ecore#//Reverse"/>
+    <genClasses ecoreClass="ftl.ecore#//Scale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Scale/factor"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Sharpen"/>
   </genPackages>
 </genmodel:GenModel>

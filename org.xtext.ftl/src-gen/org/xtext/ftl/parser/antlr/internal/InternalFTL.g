@@ -105,6 +105,44 @@ ruleProgram returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleFloat
+entryRuleFloat returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getFloatRule()); }
+	iv_ruleFloat=ruleFloat
+	{ $current=$iv_ruleFloat.current.getText(); }
+	EOF;
+
+// Rule Float
+ruleFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_INT_0=RULE_INT
+		{
+			$current.merge(this_INT_0);
+		}
+		{
+			newLeafNode(this_INT_0, grammarAccess.getFloatAccess().getINTTerminalRuleCall_0());
+		}
+		kw='.'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getFloatAccess().getFullStopKeyword_1());
+		}
+		this_INT_2=RULE_INT
+		{
+			$current.merge(this_INT_2);
+		}
+		{
+			newLeafNode(this_INT_2, grammarAccess.getFloatAccess().getINTTerminalRuleCall_2());
+		}
+	)
+;
+
 // Entry rule entryRuleTransform
 entryRuleTransform returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getTransformRule()); }
@@ -225,10 +263,46 @@ ruleInstruction returns [EObject current=null]
 				$current = $this_Blur_3.current;
 				afterParserOrEnumRuleCall();
 			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getInstructionAccess().getGrayscaleParserRuleCall_0_4());
+			}
+			this_Grayscale_4=ruleGrayscale
+			{
+				$current = $this_Grayscale_4.current;
+				afterParserOrEnumRuleCall();
+			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getInstructionAccess().getScaleParserRuleCall_0_5());
+			}
+			this_Scale_5=ruleScale
+			{
+				$current = $this_Scale_5.current;
+				afterParserOrEnumRuleCall();
+			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getInstructionAccess().getSharpenParserRuleCall_0_6());
+			}
+			this_Sharpen_6=ruleSharpen
+			{
+				$current = $this_Sharpen_6.current;
+				afterParserOrEnumRuleCall();
+			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getInstructionAccess().getReverseParserRuleCall_0_7());
+			}
+			this_Reverse_7=ruleReverse
+			{
+				$current = $this_Reverse_7.current;
+				afterParserOrEnumRuleCall();
+			}
 		)
-		otherlv_4=';'
+		otherlv_8=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getInstructionAccess().getSemicolonKeyword_1());
+			newLeafNode(otherlv_8, grammarAccess.getInstructionAccess().getSemicolonKeyword_1());
 		}
 	)
 ;
@@ -383,6 +457,138 @@ ruleBlur returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleGrayscale
+entryRuleGrayscale returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGrayscaleRule()); }
+	iv_ruleGrayscale=ruleGrayscale
+	{ $current=$iv_ruleGrayscale.current; }
+	EOF;
+
+// Rule Grayscale
+ruleGrayscale returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getGrayscaleAccess().getGrayscaleAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='grayscale'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getGrayscaleAccess().getGrayscaleKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleScale
+entryRuleScale returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScaleRule()); }
+	iv_ruleScale=ruleScale
+	{ $current=$iv_ruleScale.current; }
+	EOF;
+
+// Rule Scale
+ruleScale returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='scale'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getScaleAccess().getScaleKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScaleAccess().getFactorFloatParserRuleCall_1_0());
+				}
+				lv_factor_1_0=ruleFloat
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScaleRule());
+					}
+					set(
+						$current,
+						"factor",
+						lv_factor_1_0,
+						"org.xtext.ftl.FTL.Float");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleSharpen
+entryRuleSharpen returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSharpenRule()); }
+	iv_ruleSharpen=ruleSharpen
+	{ $current=$iv_ruleSharpen.current; }
+	EOF;
+
+// Rule Sharpen
+ruleSharpen returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSharpenAccess().getSharpenAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='sharpen'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSharpenAccess().getSharpenKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleReverse
+entryRuleReverse returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReverseRule()); }
+	iv_ruleReverse=ruleReverse
+	{ $current=$iv_ruleReverse.current; }
+	EOF;
+
+// Rule Reverse
+ruleReverse returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getReverseAccess().getReverseAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='reverse'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getReverseAccess().getReverseKeyword_1());
+		}
 	)
 ;
 

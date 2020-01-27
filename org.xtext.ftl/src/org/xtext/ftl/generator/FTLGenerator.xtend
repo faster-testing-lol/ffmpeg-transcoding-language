@@ -41,6 +41,10 @@ class FTLGenerator extends AbstractGenerator {
 	colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131,eq=1.0:0:1.3:2.4:1.0:1.0:1.0:1.0
 	'''
 	
+	def dispatch compile (Grayscale grayscale) '''
+	hue=s=0
+	'''
+	
 	def dispatch compile(Video video) '''
 	movie=«video.input»
 	'''
@@ -48,4 +52,17 @@ class FTLGenerator extends AbstractGenerator {
 	def dispatch compile(Audio audio) '''
 	audio=«audio.input»
 	'''
+	
+	def dispatch compile(Sharpen sharpen) '''
+	convolution=\"0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0\"
+	'''
+	
+	def dispatch compile(Reverse reverse) '''
+	reverse
+	'''
+	
+	def dispatch compile(Scale scale) '''
+	scale=w=«scale.factor»*iw:h=«scale.factor»*ih
+	'''
+	
 }

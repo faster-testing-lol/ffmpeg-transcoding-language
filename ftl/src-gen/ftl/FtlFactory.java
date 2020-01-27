@@ -85,6 +85,42 @@ public interface FtlFactory extends EFactory {
 	Audio createAudio();
 
 	/**
+	 * Returns a new object of class '<em>Grayscale</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grayscale</em>'.
+	 * @generated
+	 */
+	Grayscale createGrayscale();
+
+	/**
+	 * Returns a new object of class '<em>Reverse</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reverse</em>'.
+	 * @generated
+	 */
+	Reverse createReverse();
+
+	/**
+	 * Returns a new object of class '<em>Scale</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scale</em>'.
+	 * @generated
+	 */
+	Scale createScale();
+
+	/**
+	 * Returns a new object of class '<em>Sharpen</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sharpen</em>'.
+	 * @generated
+	 */
+	Sharpen createSharpen();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
