@@ -72,33 +72,8 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIn(In object) {
-			return createInAdapter();
-		}
-
-		@Override
-		public Adapter caseOut(Out object) {
-			return createOutAdapter();
-		}
-
-		@Override
-		public Adapter caseTemp(Temp object) {
-			return createTempAdapter();
-		}
-
-		@Override
-		public Adapter caseStream(Stream object) {
-			return createStreamAdapter();
-		}
-
-		@Override
 		public Adapter caseTransform(Transform object) {
 			return createTransformAdapter();
-		}
-
-		@Override
-		public Adapter caseOutputStream(OutputStream object) {
-			return createOutputStreamAdapter();
 		}
 
 		@Override
@@ -124,6 +99,11 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseVideo(Video object) {
 			return createVideoAdapter();
+		}
+
+		@Override
+		public Adapter caseAudio(Audio object) {
+			return createAudioAdapter();
 		}
 
 		@Override
@@ -160,62 +140,6 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ftl.In <em>In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ftl.In
-	 * @generated
-	 */
-	public Adapter createInAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ftl.Out <em>Out</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ftl.Out
-	 * @generated
-	 */
-	public Adapter createOutAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ftl.Temp <em>Temp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ftl.Temp
-	 * @generated
-	 */
-	public Adapter createTempAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ftl.Stream <em>Stream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ftl.Stream
-	 * @generated
-	 */
-	public Adapter createStreamAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ftl.Transform <em>Transform</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -226,20 +150,6 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransformAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ftl.OutputStream <em>Output Stream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ftl.OutputStream
-	 * @generated
-	 */
-	public Adapter createOutputStreamAdapter() {
 		return null;
 	}
 
@@ -310,6 +220,20 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVideoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Audio <em>Audio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Audio
+	 * @generated
+	 */
+	public Adapter createAudioAdapter() {
 		return null;
 	}
 

@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ftl.Program#getStreams <em>Streams</em>}</li>
  *   <li>{@link ftl.Program#getTransforms <em>Transforms</em>}</li>
  * </ul>
  *
@@ -24,18 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Program extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Streams</b></em>' containment reference list.
-	 * The list contents are of type {@link ftl.Stream}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Streams</em>' containment reference list.
-	 * @see ftl.FtlPackage#getProgram_Streams()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Stream> getStreams();
-
 	/**
 	 * Returns the value of the '<em><b>Transforms</b></em>' containment reference list.
 	 * The list contents are of type {@link ftl.Transform}.

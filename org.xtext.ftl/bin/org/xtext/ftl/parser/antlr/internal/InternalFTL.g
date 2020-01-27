@@ -86,28 +86,9 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getStreamsStreamParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getTransformsTransformParserRuleCall_1_0());
 				}
-				lv_streams_1_0=ruleStream
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getProgramRule());
-					}
-					add(
-						$current,
-						"streams",
-						lv_streams_1_0,
-						"org.xtext.ftl.FTL.Stream");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getProgramAccess().getTransformsTransformParserRuleCall_2_0());
-				}
-				lv_transforms_2_0=ruleTransform
+				lv_transforms_1_0=ruleTransform
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -115,297 +96,12 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"transforms",
-						lv_transforms_2_0,
+						lv_transforms_1_0,
 						"org.xtext.ftl.FTL.Transform");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-	)
-;
-
-// Entry rule entryRuleStream
-entryRuleStream returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getStreamRule()); }
-	iv_ruleStream=ruleStream
-	{ $current=$iv_ruleStream.current; }
-	EOF;
-
-// Rule Stream
-ruleStream returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getStreamAccess().getInParserRuleCall_0());
-		}
-		this_In_0=ruleIn
-		{
-			$current = $this_In_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getStreamAccess().getOutputStreamParserRuleCall_1());
-		}
-		this_OutputStream_1=ruleOutputStream
-		{
-			$current = $this_OutputStream_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleIn
-entryRuleIn returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getInRule()); }
-	iv_ruleIn=ruleIn
-	{ $current=$iv_ruleIn.current; }
-	EOF;
-
-// Rule In
-ruleIn returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='in'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getInAccess().getInKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_STRING
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getInAccess().getNameSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_2='\''
-		{
-			newLeafNode(otherlv_2, grammarAccess.getInAccess().getApostropheKeyword_2());
-		}
-		(
-			(
-				lv_path_3_0=RULE_STRING
-				{
-					newLeafNode(lv_path_3_0, grammarAccess.getInAccess().getPathSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"path",
-						lv_path_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_4='\''
-		{
-			newLeafNode(otherlv_4, grammarAccess.getInAccess().getApostropheKeyword_4());
-		}
-		otherlv_5=';'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getInAccess().getSemicolonKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleOutputStream
-entryRuleOutputStream returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOutputStreamRule()); }
-	iv_ruleOutputStream=ruleOutputStream
-	{ $current=$iv_ruleOutputStream.current; }
-	EOF;
-
-// Rule OutputStream
-ruleOutputStream returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getOutputStreamAccess().getOutParserRuleCall_0());
-		}
-		this_Out_0=ruleOut
-		{
-			$current = $this_Out_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getOutputStreamAccess().getTempParserRuleCall_1());
-		}
-		this_Temp_1=ruleTemp
-		{
-			$current = $this_Temp_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleOut
-entryRuleOut returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOutRule()); }
-	iv_ruleOut=ruleOut
-	{ $current=$iv_ruleOut.current; }
-	EOF;
-
-// Rule Out
-ruleOut returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='out'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getOutAccess().getOutKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_STRING
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getOutAccess().getNameSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getOutRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_2='\''
-		{
-			newLeafNode(otherlv_2, grammarAccess.getOutAccess().getApostropheKeyword_2());
-		}
-		(
-			(
-				lv_path_3_0=RULE_STRING
-				{
-					newLeafNode(lv_path_3_0, grammarAccess.getOutAccess().getPathSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getOutRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"path",
-						lv_path_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_4='\''
-		{
-			newLeafNode(otherlv_4, grammarAccess.getOutAccess().getApostropheKeyword_4());
-		}
-		otherlv_5=';'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getOutAccess().getSemicolonKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleTemp
-entryRuleTemp returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTempRule()); }
-	iv_ruleTemp=ruleTemp
-	{ $current=$iv_ruleTemp.current; }
-	EOF;
-
-// Rule Temp
-ruleTemp returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='temp'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTempAccess().getTempKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_STRING
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getTempAccess().getNameSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTempRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_2='\''
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTempAccess().getApostropheKeyword_2());
-		}
-		(
-			(
-				lv_path_3_0=RULE_STRING
-				{
-					newLeafNode(lv_path_3_0, grammarAccess.getTempAccess().getPathSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTempRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"path",
-						lv_path_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_4='\''
-		{
-			newLeafNode(otherlv_4, grammarAccess.getTempAccess().getApostropheKeyword_4());
-		}
-		otherlv_5=';'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getTempAccess().getSemicolonKeyword_5());
-		}
 	)
 ;
 
@@ -504,26 +200,35 @@ ruleInstruction returns [EObject current=null]
 			}
 			    |
 			{
-				newCompositeNode(grammarAccess.getInstructionAccess().getSepiaParserRuleCall_0_1());
+				newCompositeNode(grammarAccess.getInstructionAccess().getAudioParserRuleCall_0_1());
 			}
-			this_Sepia_1=ruleSepia
+			this_Audio_1=ruleAudio
 			{
-				$current = $this_Sepia_1.current;
+				$current = $this_Audio_1.current;
 				afterParserOrEnumRuleCall();
 			}
 			    |
 			{
-				newCompositeNode(grammarAccess.getInstructionAccess().getBlurParserRuleCall_0_2());
+				newCompositeNode(grammarAccess.getInstructionAccess().getSepiaParserRuleCall_0_2());
 			}
-			this_Blur_2=ruleBlur
+			this_Sepia_2=ruleSepia
 			{
-				$current = $this_Blur_2.current;
+				$current = $this_Sepia_2.current;
+				afterParserOrEnumRuleCall();
+			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getInstructionAccess().getBlurParserRuleCall_0_3());
+			}
+			this_Blur_3=ruleBlur
+			{
+				$current = $this_Blur_3.current;
 				afterParserOrEnumRuleCall();
 			}
 		)
-		otherlv_3=';'
+		otherlv_4=';'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getInstructionAccess().getSemicolonKeyword_1());
+			newLeafNode(otherlv_4, grammarAccess.getInstructionAccess().getSemicolonKeyword_1());
 		}
 	)
 ;
@@ -557,6 +262,47 @@ ruleVideo returns [EObject current=null]
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getVideoRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"input",
+						lv_input_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleAudio
+entryRuleAudio returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAudioRule()); }
+	iv_ruleAudio=ruleAudio
+	{ $current=$iv_ruleAudio.current; }
+	EOF;
+
+// Rule Audio
+ruleAudio returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='audio'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAudioAccess().getAudioKeyword_0());
+		}
+		(
+			(
+				lv_input_1_0=RULE_STRING
+				{
+					newLeafNode(lv_input_1_0, grammarAccess.getAudioAccess().getInputSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAudioRule());
 					}
 					setWithLastConsumed(
 						$current,

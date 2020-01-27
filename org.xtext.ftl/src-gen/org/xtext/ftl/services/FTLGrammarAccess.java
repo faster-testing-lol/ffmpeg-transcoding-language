@@ -27,200 +27,24 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Program");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cProgramAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cStreamsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStreamsStreamParserRuleCall_1_0 = (RuleCall)cStreamsAssignment_1.eContents().get(0);
-		private final Assignment cTransformsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTransformsTransformParserRuleCall_2_0 = (RuleCall)cTransformsAssignment_2.eContents().get(0);
+		private final Assignment cTransformsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTransformsTransformParserRuleCall_1_0 = (RuleCall)cTransformsAssignment_1.eContents().get(0);
 		
 		//Program:
-		//	{Program} streams+=Stream*
-		//	transforms+=Transform*;
+		//	{Program} transforms+=Transform*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Program} streams+=Stream* transforms+=Transform*
+		//{Program} transforms+=Transform*
 		public Group getGroup() { return cGroup; }
 		
 		//{Program}
 		public Action getProgramAction_0() { return cProgramAction_0; }
 		
-		//streams+=Stream*
-		public Assignment getStreamsAssignment_1() { return cStreamsAssignment_1; }
-		
-		//Stream
-		public RuleCall getStreamsStreamParserRuleCall_1_0() { return cStreamsStreamParserRuleCall_1_0; }
-		
 		//transforms+=Transform*
-		public Assignment getTransformsAssignment_2() { return cTransformsAssignment_2; }
+		public Assignment getTransformsAssignment_1() { return cTransformsAssignment_1; }
 		
 		//Transform
-		public RuleCall getTransformsTransformParserRuleCall_2_0() { return cTransformsTransformParserRuleCall_2_0; }
-	}
-	public class StreamElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Stream");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cInParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOutputStreamParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Stream:
-		//	In | OutputStream;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//In | OutputStream
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//In
-		public RuleCall getInParserRuleCall_0() { return cInParserRuleCall_0; }
-		
-		//OutputStream
-		public RuleCall getOutputStreamParserRuleCall_1() { return cOutputStreamParserRuleCall_1; }
-	}
-	public class InElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.In");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cApostropheKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPathSTRINGTerminalRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
-		private final Keyword cApostropheKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//In:
-		//	'in' name=STRING '\'' path=STRING '\'' ';';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'in' name=STRING '\'' path=STRING '\'' ';'
-		public Group getGroup() { return cGroup; }
-		
-		//'in'
-		public Keyword getInKeyword_0() { return cInKeyword_0; }
-		
-		//name=STRING
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_2() { return cApostropheKeyword_2; }
-		
-		//path=STRING
-		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
-		
-		//STRING
-		public RuleCall getPathSTRINGTerminalRuleCall_3_0() { return cPathSTRINGTerminalRuleCall_3_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_4() { return cApostropheKeyword_4; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
-	}
-	public class OutputStreamElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.OutputStream");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cOutParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTempParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//OutputStream:
-		//	Out | Temp;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Out | Temp
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Out
-		public RuleCall getOutParserRuleCall_0() { return cOutParserRuleCall_0; }
-		
-		//Temp
-		public RuleCall getTempParserRuleCall_1() { return cTempParserRuleCall_1; }
-	}
-	public class OutElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Out");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOutKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cApostropheKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPathSTRINGTerminalRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
-		private final Keyword cApostropheKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//Out:
-		//	'out' name=STRING '\'' path=STRING '\'' ';';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'out' name=STRING '\'' path=STRING '\'' ';'
-		public Group getGroup() { return cGroup; }
-		
-		//'out'
-		public Keyword getOutKeyword_0() { return cOutKeyword_0; }
-		
-		//name=STRING
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_2() { return cApostropheKeyword_2; }
-		
-		//path=STRING
-		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
-		
-		//STRING
-		public RuleCall getPathSTRINGTerminalRuleCall_3_0() { return cPathSTRINGTerminalRuleCall_3_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_4() { return cApostropheKeyword_4; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
-	}
-	public class TempElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Temp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTempKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cApostropheKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPathSTRINGTerminalRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
-		private final Keyword cApostropheKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//Temp:
-		//	'temp' name=STRING '\'' path=STRING '\'' ';';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'temp' name=STRING '\'' path=STRING '\'' ';'
-		public Group getGroup() { return cGroup; }
-		
-		//'temp'
-		public Keyword getTempKeyword_0() { return cTempKeyword_0; }
-		
-		//name=STRING
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_2() { return cApostropheKeyword_2; }
-		
-		//path=STRING
-		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
-		
-		//STRING
-		public RuleCall getPathSTRINGTerminalRuleCall_3_0() { return cPathSTRINGTerminalRuleCall_3_0; }
-		
-		//'\''
-		public Keyword getApostropheKeyword_4() { return cApostropheKeyword_4; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public RuleCall getTransformsTransformParserRuleCall_1_0() { return cTransformsTransformParserRuleCall_1_0; }
 	}
 	public class TransformElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Transform");
@@ -268,28 +92,32 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final RuleCall cVideoParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cSepiaParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cBlurParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
+		private final RuleCall cAudioParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cSepiaParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
+		private final RuleCall cBlurParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Instruction:
-		//	(Video | Sepia | Blur) ';';
+		//	(Video | Audio | Sepia | Blur) ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(Video | Sepia | Blur) ';'
+		//(Video | Audio | Sepia | Blur) ';'
 		public Group getGroup() { return cGroup; }
 		
-		//(Video | Sepia | Blur)
+		//(Video | Audio | Sepia | Blur)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//Video
 		public RuleCall getVideoParserRuleCall_0_0() { return cVideoParserRuleCall_0_0; }
 		
+		//Audio
+		public RuleCall getAudioParserRuleCall_0_1() { return cAudioParserRuleCall_0_1; }
+		
 		//Sepia
-		public RuleCall getSepiaParserRuleCall_0_1() { return cSepiaParserRuleCall_0_1; }
+		public RuleCall getSepiaParserRuleCall_0_2() { return cSepiaParserRuleCall_0_2; }
 		
 		//Blur
-		public RuleCall getBlurParserRuleCall_0_2() { return cBlurParserRuleCall_0_2; }
+		public RuleCall getBlurParserRuleCall_0_3() { return cBlurParserRuleCall_0_3; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
@@ -310,6 +138,29 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'video'
 		public Keyword getVideoKeyword_0() { return cVideoKeyword_0; }
+		
+		//input=STRING
+		public Assignment getInputAssignment_1() { return cInputAssignment_1; }
+		
+		//STRING
+		public RuleCall getInputSTRINGTerminalRuleCall_1_0() { return cInputSTRINGTerminalRuleCall_1_0; }
+	}
+	public class AudioElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Audio");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAudioKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cInputAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cInputSTRINGTerminalRuleCall_1_0 = (RuleCall)cInputAssignment_1.eContents().get(0);
+		
+		//Audio:
+		//	'audio' input=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'audio' input=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'audio'
+		public Keyword getAudioKeyword_0() { return cAudioKeyword_0; }
 		
 		//input=STRING
 		public Assignment getInputAssignment_1() { return cInputAssignment_1; }
@@ -363,14 +214,10 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ProgramElements pProgram;
-	private final StreamElements pStream;
-	private final InElements pIn;
-	private final OutputStreamElements pOutputStream;
-	private final OutElements pOut;
-	private final TempElements pTemp;
 	private final TransformElements pTransform;
 	private final InstructionElements pInstruction;
 	private final VideoElements pVideo;
+	private final AudioElements pAudio;
 	private final SepiaElements pSepia;
 	private final BlurElements pBlur;
 	
@@ -384,14 +231,10 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pProgram = new ProgramElements();
-		this.pStream = new StreamElements();
-		this.pIn = new InElements();
-		this.pOutputStream = new OutputStreamElements();
-		this.pOut = new OutElements();
-		this.pTemp = new TempElements();
 		this.pTransform = new TransformElements();
 		this.pInstruction = new InstructionElements();
 		this.pVideo = new VideoElements();
+		this.pAudio = new AudioElements();
 		this.pSepia = new SepiaElements();
 		this.pBlur = new BlurElements();
 	}
@@ -424,64 +267,13 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	{Program} streams+=Stream*
-	//	transforms+=Transform*;
+	//	{Program} transforms+=Transform*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
 	
 	public ParserRule getProgramRule() {
 		return getProgramAccess().getRule();
-	}
-	
-	//Stream:
-	//	In | OutputStream;
-	public StreamElements getStreamAccess() {
-		return pStream;
-	}
-	
-	public ParserRule getStreamRule() {
-		return getStreamAccess().getRule();
-	}
-	
-	//In:
-	//	'in' name=STRING '\'' path=STRING '\'' ';';
-	public InElements getInAccess() {
-		return pIn;
-	}
-	
-	public ParserRule getInRule() {
-		return getInAccess().getRule();
-	}
-	
-	//OutputStream:
-	//	Out | Temp;
-	public OutputStreamElements getOutputStreamAccess() {
-		return pOutputStream;
-	}
-	
-	public ParserRule getOutputStreamRule() {
-		return getOutputStreamAccess().getRule();
-	}
-	
-	//Out:
-	//	'out' name=STRING '\'' path=STRING '\'' ';';
-	public OutElements getOutAccess() {
-		return pOut;
-	}
-	
-	public ParserRule getOutRule() {
-		return getOutAccess().getRule();
-	}
-	
-	//Temp:
-	//	'temp' name=STRING '\'' path=STRING '\'' ';';
-	public TempElements getTempAccess() {
-		return pTemp;
-	}
-	
-	public ParserRule getTempRule() {
-		return getTempAccess().getRule();
 	}
 	
 	//Transform:
@@ -497,7 +289,7 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	(Video | Sepia | Blur) ';';
+	//	(Video | Audio | Sepia | Blur) ';';
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
@@ -514,6 +306,16 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getVideoRule() {
 		return getVideoAccess().getRule();
+	}
+	
+	//Audio:
+	//	'audio' input=STRING;
+	public AudioElements getAudioAccess() {
+		return pAudio;
+	}
+	
+	public ParserRule getAudioRule() {
+		return getAudioAccess().getRule();
 	}
 	
 	//Sepia:

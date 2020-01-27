@@ -57,12 +57,6 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 		switch (eClass.getClassifierID()) {
 		case FtlPackage.PROGRAM:
 			return createProgram();
-		case FtlPackage.IN:
-			return createIn();
-		case FtlPackage.OUT:
-			return createOut();
-		case FtlPackage.TEMP:
-			return createTemp();
 		case FtlPackage.TRANSFORM:
 			return createTransform();
 		case FtlPackage.SEPIA:
@@ -73,6 +67,8 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 			return createframes();
 		case FtlPackage.VIDEO:
 			return createVideo();
+		case FtlPackage.AUDIO:
+			return createAudio();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,39 +83,6 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	public Program createProgram() {
 		ProgramImpl program = new ProgramImpl();
 		return program;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public In createIn() {
-		InImpl in = new InImpl();
-		return in;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Out createOut() {
-		OutImpl out = new OutImpl();
-		return out;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Temp createTemp() {
-		TempImpl temp = new TempImpl();
-		return temp;
 	}
 
 	/**
@@ -175,6 +138,17 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	public Video createVideo() {
 		VideoImpl video = new VideoImpl();
 		return video;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Audio createAudio() {
+		AudioImpl audio = new AudioImpl();
+		return audio;
 	}
 
 	/**

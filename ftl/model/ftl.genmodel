@@ -9,21 +9,12 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ftl" disposableProviderFactory="true" ecorePackage="ftl.ecore#/">
     <genClasses ecoreClass="ftl.ecore#//Program">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftl.ecore#//Program/streams"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftl.ecore#//Program/transforms"/>
-    </genClasses>
-    <genClasses ecoreClass="ftl.ecore#//In"/>
-    <genClasses ecoreClass="ftl.ecore#//Out"/>
-    <genClasses ecoreClass="ftl.ecore#//Temp"/>
-    <genClasses ecoreClass="ftl.ecore#//Stream">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Stream/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Stream/name"/>
     </genClasses>
     <genClasses ecoreClass="ftl.ecore#//Transform">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftl.ecore#//Transform/instruction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Transform/output"/>
     </genClasses>
-    <genClasses ecoreClass="ftl.ecore#//OutputStream"/>
     <genClasses ecoreClass="ftl.ecore#//Instruction"/>
     <genClasses ecoreClass="ftl.ecore#//Sepia"/>
     <genClasses ecoreClass="ftl.ecore#//Blur">
@@ -32,6 +23,9 @@
     <genClasses ecoreClass="ftl.ecore#//frames"/>
     <genClasses ecoreClass="ftl.ecore#//Video">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Video/input"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Audio">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Audio/input"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -24,19 +24,11 @@ class FTLGenerator extends AbstractGenerator {
 	def dispatch compile(Instruction inst) ''' Pas content '''
 	
 	def dispatch compile(Program program) '''
-	«FOR stream : program.streams»
-		«stream.compile»
-	«ENDFOR»
 	«FOR transform : program.transforms»
 		«transform.compile»
 	«ENDFOR»
 	'''
-	
-	def dispatch compile(In in) '''
-	«in.name» = "«in.path»";
-	
-	'''
-	
+
 	def dispatch compile(Transform transform) '''
 	ffmpeg -y -filter_complex "
 	«FOR instruction : transform.instruction SEPARATOR ',' »
@@ -51,5 +43,9 @@ class FTLGenerator extends AbstractGenerator {
 	
 	def dispatch compile(Video video) '''
 	movie=«video.input»
+	'''
+	
+	def dispatch compile(Audio audio) '''
+	audio=«audio.input»
 	'''
 }

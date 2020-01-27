@@ -73,56 +73,9 @@ public class FtlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case FtlPackage.IN: {
-			In in = (In) theEObject;
-			T result = caseIn(in);
-			if (result == null)
-				result = caseStream(in);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.OUT: {
-			Out out = (Out) theEObject;
-			T result = caseOut(out);
-			if (result == null)
-				result = caseOutputStream(out);
-			if (result == null)
-				result = caseStream(out);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.TEMP: {
-			Temp temp = (Temp) theEObject;
-			T result = caseTemp(temp);
-			if (result == null)
-				result = caseOutputStream(temp);
-			if (result == null)
-				result = caseStream(temp);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.STREAM: {
-			Stream stream = (Stream) theEObject;
-			T result = caseStream(stream);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case FtlPackage.TRANSFORM: {
 			Transform transform = (Transform) theEObject;
 			T result = caseTransform(transform);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.OUTPUT_STREAM: {
-			OutputStream outputStream = (OutputStream) theEObject;
-			T result = caseOutputStream(outputStream);
-			if (result == null)
-				result = caseStream(outputStream);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -170,6 +123,15 @@ public class FtlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case FtlPackage.AUDIO: {
+			Audio audio = (Audio) theEObject;
+			T result = caseAudio(audio);
+			if (result == null)
+				result = caseInstruction(audio);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -191,66 +153,6 @@ public class FtlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>In</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>In</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIn(In object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Out</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Out</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOut(Out object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Temp</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Temp</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTemp(Temp object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Stream</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Stream</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStream(Stream object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Transform</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -262,21 +164,6 @@ public class FtlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTransform(Transform object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Output Stream</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Output Stream</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOutputStream(OutputStream object) {
 		return null;
 	}
 
@@ -352,6 +239,21 @@ public class FtlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVideo(Video object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Audio</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Audio</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAudio(Audio object) {
 		return null;
 	}
 

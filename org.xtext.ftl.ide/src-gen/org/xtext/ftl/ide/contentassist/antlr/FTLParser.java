@@ -31,29 +31,19 @@ public class FTLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, FTLGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getStreamAccess().getAlternatives(), "rule__Stream__Alternatives");
-			builder.put(grammarAccess.getOutputStreamAccess().getAlternatives(), "rule__OutputStream__Alternatives");
 			builder.put(grammarAccess.getInstructionAccess().getAlternatives_0(), "rule__Instruction__Alternatives_0");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
-			builder.put(grammarAccess.getInAccess().getGroup(), "rule__In__Group__0");
-			builder.put(grammarAccess.getOutAccess().getGroup(), "rule__Out__Group__0");
-			builder.put(grammarAccess.getTempAccess().getGroup(), "rule__Temp__Group__0");
 			builder.put(grammarAccess.getTransformAccess().getGroup(), "rule__Transform__Group__0");
 			builder.put(grammarAccess.getInstructionAccess().getGroup(), "rule__Instruction__Group__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup(), "rule__Video__Group__0");
+			builder.put(grammarAccess.getAudioAccess().getGroup(), "rule__Audio__Group__0");
 			builder.put(grammarAccess.getSepiaAccess().getGroup(), "rule__Sepia__Group__0");
 			builder.put(grammarAccess.getBlurAccess().getGroup(), "rule__Blur__Group__0");
-			builder.put(grammarAccess.getProgramAccess().getStreamsAssignment_1(), "rule__Program__StreamsAssignment_1");
-			builder.put(grammarAccess.getProgramAccess().getTransformsAssignment_2(), "rule__Program__TransformsAssignment_2");
-			builder.put(grammarAccess.getInAccess().getNameAssignment_1(), "rule__In__NameAssignment_1");
-			builder.put(grammarAccess.getInAccess().getPathAssignment_3(), "rule__In__PathAssignment_3");
-			builder.put(grammarAccess.getOutAccess().getNameAssignment_1(), "rule__Out__NameAssignment_1");
-			builder.put(grammarAccess.getOutAccess().getPathAssignment_3(), "rule__Out__PathAssignment_3");
-			builder.put(grammarAccess.getTempAccess().getNameAssignment_1(), "rule__Temp__NameAssignment_1");
-			builder.put(grammarAccess.getTempAccess().getPathAssignment_3(), "rule__Temp__PathAssignment_3");
+			builder.put(grammarAccess.getProgramAccess().getTransformsAssignment_1(), "rule__Program__TransformsAssignment_1");
 			builder.put(grammarAccess.getTransformAccess().getOutputAssignment_0(), "rule__Transform__OutputAssignment_0");
 			builder.put(grammarAccess.getTransformAccess().getInstructionAssignment_3(), "rule__Transform__InstructionAssignment_3");
 			builder.put(grammarAccess.getVideoAccess().getInputAssignment_1(), "rule__Video__InputAssignment_1");
+			builder.put(grammarAccess.getAudioAccess().getInputAssignment_1(), "rule__Audio__InputAssignment_1");
 			builder.put(grammarAccess.getBlurAccess().getRadiusAssignment_1(), "rule__Blur__RadiusAssignment_1");
 		}
 	}

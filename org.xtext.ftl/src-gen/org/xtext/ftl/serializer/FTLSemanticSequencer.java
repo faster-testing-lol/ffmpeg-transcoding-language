@@ -4,13 +4,11 @@
 package org.xtext.ftl.serializer;
 
 import com.google.inject.Inject;
+import ftl.Audio;
 import ftl.Blur;
 import ftl.FtlPackage;
-import ftl.In;
-import ftl.Out;
 import ftl.Program;
 import ftl.Sepia;
-import ftl.Temp;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Set;
@@ -39,23 +37,17 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == FtlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case FtlPackage.AUDIO:
+				sequence_Audio(context, (Audio) semanticObject); 
+				return; 
 			case FtlPackage.BLUR:
 				sequence_Blur(context, (Blur) semanticObject); 
-				return; 
-			case FtlPackage.IN:
-				sequence_In(context, (In) semanticObject); 
-				return; 
-			case FtlPackage.OUT:
-				sequence_Out(context, (Out) semanticObject); 
 				return; 
 			case FtlPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
 				return; 
 			case FtlPackage.SEPIA:
 				sequence_Sepia(context, (Sepia) semanticObject); 
-				return; 
-			case FtlPackage.TEMP:
-				sequence_Temp(context, (Temp) semanticObject); 
 				return; 
 			case FtlPackage.TRANSFORM:
 				sequence_Transform(context, (Transform) semanticObject); 
@@ -67,6 +59,25 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Audio
+	 *     Audio returns Audio
+	 *
+	 * Constraint:
+	 *     input=STRING
+	 */
+	protected void sequence_Audio(ISerializationContext context, Audio semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.AUDIO__INPUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.AUDIO__INPUT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAudioAccess().getInputSTRINGTerminalRuleCall_1_0(), semanticObject.getInput());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -89,55 +100,10 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Stream returns In
-	 *     In returns In
-	 *
-	 * Constraint:
-	 *     (name=STRING path=STRING)
-	 */
-	protected void sequence_In(ISerializationContext context, In semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__NAME));
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__PATH));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getInAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Stream returns Out
-	 *     OutputStream returns Out
-	 *     Out returns Out
-	 *
-	 * Constraint:
-	 *     (name=STRING path=STRING)
-	 */
-	protected void sequence_Out(ISerializationContext context, Out semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__NAME));
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__PATH));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOutAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getOutAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     (streams+=Stream* transforms+=Transform*)
+	 *     transforms+=Transform*
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -154,29 +120,6 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Sepia(ISerializationContext context, Sepia semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Stream returns Temp
-	 *     OutputStream returns Temp
-	 *     Temp returns Temp
-	 *
-	 * Constraint:
-	 *     (name=STRING path=STRING)
-	 */
-	protected void sequence_Temp(ISerializationContext context, Temp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__NAME));
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.STREAM__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.STREAM__PATH));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTempAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTempAccess().getPathSTRINGTerminalRuleCall_3_0(), semanticObject.getPath());
-		feeder.finish();
 	}
 	
 	

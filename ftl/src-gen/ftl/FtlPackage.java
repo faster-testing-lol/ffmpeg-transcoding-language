@@ -67,22 +67,13 @@ public interface FtlPackage extends EPackage {
 	int PROGRAM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Streams</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM__STREAMS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Transforms</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM__TRANSFORMS = 1;
+	int PROGRAM__TRANSFORMS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Program</em>' class.
@@ -91,7 +82,7 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_FEATURE_COUNT = 2;
+	int PROGRAM_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Program</em>' class.
@@ -103,236 +94,6 @@ public interface FtlPackage extends EPackage {
 	int PROGRAM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ftl.impl.StreamImpl <em>Stream</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ftl.impl.StreamImpl
-	 * @see ftl.impl.FtlPackageImpl#getStream()
-	 * @generated
-	 */
-	int STREAM = 4;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM__PATH = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM__NAME = 1;
-
-	/**
-	 * The number of structural features of the '<em>Stream</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Stream</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STREAM_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ftl.impl.InImpl <em>In</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ftl.impl.InImpl
-	 * @see ftl.impl.FtlPackageImpl#getIn()
-	 * @generated
-	 */
-	int IN = 1;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IN__PATH = STREAM__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IN__NAME = STREAM__NAME;
-
-	/**
-	 * The number of structural features of the '<em>In</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IN_FEATURE_COUNT = STREAM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>In</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IN_OPERATION_COUNT = STREAM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ftl.impl.OutputStreamImpl <em>Output Stream</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ftl.impl.OutputStreamImpl
-	 * @see ftl.impl.FtlPackageImpl#getOutputStream()
-	 * @generated
-	 */
-	int OUTPUT_STREAM = 6;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_STREAM__PATH = STREAM__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_STREAM__NAME = STREAM__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Output Stream</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_STREAM_FEATURE_COUNT = STREAM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Output Stream</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_STREAM_OPERATION_COUNT = STREAM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ftl.impl.OutImpl <em>Out</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ftl.impl.OutImpl
-	 * @see ftl.impl.FtlPackageImpl#getOut()
-	 * @generated
-	 */
-	int OUT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUT__PATH = OUTPUT_STREAM__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUT__NAME = OUTPUT_STREAM__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Out</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUT_FEATURE_COUNT = OUTPUT_STREAM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Out</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUT_OPERATION_COUNT = OUTPUT_STREAM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ftl.impl.TempImpl <em>Temp</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ftl.impl.TempImpl
-	 * @see ftl.impl.FtlPackageImpl#getTemp()
-	 * @generated
-	 */
-	int TEMP = 3;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMP__PATH = OUTPUT_STREAM__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMP__NAME = OUTPUT_STREAM__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Temp</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMP_FEATURE_COUNT = OUTPUT_STREAM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Temp</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMP_OPERATION_COUNT = OUTPUT_STREAM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link ftl.impl.TransformImpl <em>Transform</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,7 +101,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getTransform()
 	 * @generated
 	 */
-	int TRANSFORM = 5;
+	int TRANSFORM = 1;
 
 	/**
 	 * The feature id for the '<em><b>Instruction</b></em>' containment reference list.
@@ -386,7 +147,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getInstruction()
 	 * @generated
 	 */
-	int INSTRUCTION = 7;
+	int INSTRUCTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Instruction</em>' class.
@@ -414,7 +175,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getSepia()
 	 * @generated
 	 */
-	int SEPIA = 8;
+	int SEPIA = 3;
 
 	/**
 	 * The number of structural features of the '<em>Sepia</em>' class.
@@ -442,7 +203,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getBlur()
 	 * @generated
 	 */
-	int BLUR = 9;
+	int BLUR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Radius</b></em>' attribute.
@@ -479,7 +240,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getframes()
 	 * @generated
 	 */
-	int FRAMES = 10;
+	int FRAMES = 5;
 
 	/**
 	 * The number of structural features of the '<em>frames</em>' class.
@@ -507,7 +268,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getVideo()
 	 * @generated
 	 */
-	int VIDEO = 11;
+	int VIDEO = 6;
 
 	/**
 	 * The feature id for the '<em><b>Input</b></em>' attribute.
@@ -537,6 +298,43 @@ public interface FtlPackage extends EPackage {
 	int VIDEO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ftl.impl.AudioImpl <em>Audio</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.AudioImpl
+	 * @see ftl.impl.FtlPackageImpl#getAudio()
+	 * @generated
+	 */
+	int AUDIO = 7;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO__INPUT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Audio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Audio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link ftl.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -545,17 +343,6 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProgram();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ftl.Program#getStreams <em>Streams</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Streams</em>'.
-	 * @see ftl.Program#getStreams()
-	 * @see #getProgram()
-	 * @generated
-	 */
-	EReference getProgram_Streams();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ftl.Program#getTransforms <em>Transforms</em>}'.
@@ -567,68 +354,6 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProgram_Transforms();
-
-	/**
-	 * Returns the meta object for class '{@link ftl.In <em>In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>In</em>'.
-	 * @see ftl.In
-	 * @generated
-	 */
-	EClass getIn();
-
-	/**
-	 * Returns the meta object for class '{@link ftl.Out <em>Out</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Out</em>'.
-	 * @see ftl.Out
-	 * @generated
-	 */
-	EClass getOut();
-
-	/**
-	 * Returns the meta object for class '{@link ftl.Temp <em>Temp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Temp</em>'.
-	 * @see ftl.Temp
-	 * @generated
-	 */
-	EClass getTemp();
-
-	/**
-	 * Returns the meta object for class '{@link ftl.Stream <em>Stream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Stream</em>'.
-	 * @see ftl.Stream
-	 * @generated
-	 */
-	EClass getStream();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ftl.Stream#getPath <em>Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Path</em>'.
-	 * @see ftl.Stream#getPath()
-	 * @see #getStream()
-	 * @generated
-	 */
-	EAttribute getStream_Path();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ftl.Stream#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ftl.Stream#getName()
-	 * @see #getStream()
-	 * @generated
-	 */
-	EAttribute getStream_Name();
 
 	/**
 	 * Returns the meta object for class '{@link ftl.Transform <em>Transform</em>}'.
@@ -661,16 +386,6 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransform_Output();
-
-	/**
-	 * Returns the meta object for class '{@link ftl.OutputStream <em>Output Stream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Output Stream</em>'.
-	 * @see ftl.OutputStream
-	 * @generated
-	 */
-	EClass getOutputStream();
 
 	/**
 	 * Returns the meta object for class '{@link ftl.Instruction <em>Instruction</em>}'.
@@ -745,6 +460,27 @@ public interface FtlPackage extends EPackage {
 	EAttribute getVideo_Input();
 
 	/**
+	 * Returns the meta object for class '{@link ftl.Audio <em>Audio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Audio</em>'.
+	 * @see ftl.Audio
+	 * @generated
+	 */
+	EClass getAudio();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.Audio#getInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input</em>'.
+	 * @see ftl.Audio#getInput()
+	 * @see #getAudio()
+	 * @generated
+	 */
+	EAttribute getAudio_Input();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -778,76 +514,12 @@ public interface FtlPackage extends EPackage {
 		EClass PROGRAM = eINSTANCE.getProgram();
 
 		/**
-		 * The meta object literal for the '<em><b>Streams</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM__STREAMS = eINSTANCE.getProgram_Streams();
-
-		/**
 		 * The meta object literal for the '<em><b>Transforms</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PROGRAM__TRANSFORMS = eINSTANCE.getProgram_Transforms();
-
-		/**
-		 * The meta object literal for the '{@link ftl.impl.InImpl <em>In</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ftl.impl.InImpl
-		 * @see ftl.impl.FtlPackageImpl#getIn()
-		 * @generated
-		 */
-		EClass IN = eINSTANCE.getIn();
-
-		/**
-		 * The meta object literal for the '{@link ftl.impl.OutImpl <em>Out</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ftl.impl.OutImpl
-		 * @see ftl.impl.FtlPackageImpl#getOut()
-		 * @generated
-		 */
-		EClass OUT = eINSTANCE.getOut();
-
-		/**
-		 * The meta object literal for the '{@link ftl.impl.TempImpl <em>Temp</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ftl.impl.TempImpl
-		 * @see ftl.impl.FtlPackageImpl#getTemp()
-		 * @generated
-		 */
-		EClass TEMP = eINSTANCE.getTemp();
-
-		/**
-		 * The meta object literal for the '{@link ftl.impl.StreamImpl <em>Stream</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ftl.impl.StreamImpl
-		 * @see ftl.impl.FtlPackageImpl#getStream()
-		 * @generated
-		 */
-		EClass STREAM = eINSTANCE.getStream();
-
-		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STREAM__PATH = eINSTANCE.getStream_Path();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STREAM__NAME = eINSTANCE.getStream_Name();
 
 		/**
 		 * The meta object literal for the '{@link ftl.impl.TransformImpl <em>Transform</em>}' class.
@@ -874,16 +546,6 @@ public interface FtlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSFORM__OUTPUT = eINSTANCE.getTransform_Output();
-
-		/**
-		 * The meta object literal for the '{@link ftl.impl.OutputStreamImpl <em>Output Stream</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ftl.impl.OutputStreamImpl
-		 * @see ftl.impl.FtlPackageImpl#getOutputStream()
-		 * @generated
-		 */
-		EClass OUTPUT_STREAM = eINSTANCE.getOutputStream();
 
 		/**
 		 * The meta object literal for the '{@link ftl.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -950,6 +612,24 @@ public interface FtlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIDEO__INPUT = eINSTANCE.getVideo_Input();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.AudioImpl <em>Audio</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.AudioImpl
+		 * @see ftl.impl.FtlPackageImpl#getAudio()
+		 * @generated
+		 */
+		EClass AUDIO = eINSTANCE.getAudio();
+
+		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO__INPUT = eINSTANCE.getAudio_Input();
 
 	}
 

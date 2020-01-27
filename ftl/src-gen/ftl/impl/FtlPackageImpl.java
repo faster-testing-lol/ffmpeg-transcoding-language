@@ -2,17 +2,13 @@
  */
 package ftl.impl;
 
+import ftl.Audio;
 import ftl.Blur;
 import ftl.FtlFactory;
 import ftl.FtlPackage;
-import ftl.In;
 import ftl.Instruction;
-import ftl.Out;
-import ftl.OutputStream;
 import ftl.Program;
 import ftl.Sepia;
-import ftl.Stream;
-import ftl.Temp;
 import ftl.Transform;
 import ftl.Video;
 import ftl.frames;
@@ -43,42 +39,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass inEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass outEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass tempEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass streamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass transformEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass outputStreamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,6 +75,13 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	private EClass videoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass audioEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -195,78 +163,8 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProgram_Streams() {
-		return (EReference) programEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getProgram_Transforms() {
-		return (EReference) programEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIn() {
-		return inEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getOut() {
-		return outEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTemp() {
-		return tempEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getStream() {
-		return streamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getStream_Path() {
-		return (EAttribute) streamEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getStream_Name() {
-		return (EAttribute) streamEClass.getEStructuralFeatures().get(1);
+		return (EReference) programEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -297,16 +195,6 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	@Override
 	public EAttribute getTransform_Output() {
 		return (EAttribute) transformEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getOutputStream() {
-		return outputStreamEClass;
 	}
 
 	/**
@@ -385,6 +273,26 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAudio() {
+		return audioEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAudio_Input() {
+		return (EAttribute) audioEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FtlFactory getFtlFactory() {
 		return (FtlFactory) getEFactoryInstance();
 	}
@@ -410,24 +318,11 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 
 		// Create classes and their features
 		programEClass = createEClass(PROGRAM);
-		createEReference(programEClass, PROGRAM__STREAMS);
 		createEReference(programEClass, PROGRAM__TRANSFORMS);
-
-		inEClass = createEClass(IN);
-
-		outEClass = createEClass(OUT);
-
-		tempEClass = createEClass(TEMP);
-
-		streamEClass = createEClass(STREAM);
-		createEAttribute(streamEClass, STREAM__PATH);
-		createEAttribute(streamEClass, STREAM__NAME);
 
 		transformEClass = createEClass(TRANSFORM);
 		createEReference(transformEClass, TRANSFORM__INSTRUCTION);
 		createEAttribute(transformEClass, TRANSFORM__OUTPUT);
-
-		outputStreamEClass = createEClass(OUTPUT_STREAM);
 
 		instructionEClass = createEClass(INSTRUCTION);
 
@@ -440,6 +335,9 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 
 		videoEClass = createEClass(VIDEO);
 		createEAttribute(videoEClass, VIDEO__INPUT);
+
+		audioEClass = createEClass(AUDIO);
+		createEAttribute(audioEClass, AUDIO__INPUT);
 	}
 
 	/**
@@ -471,35 +369,17 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		inEClass.getESuperTypes().add(this.getStream());
-		outEClass.getESuperTypes().add(this.getOutputStream());
-		tempEClass.getESuperTypes().add(this.getOutputStream());
-		outputStreamEClass.getESuperTypes().add(this.getStream());
 		sepiaEClass.getESuperTypes().add(this.getInstruction());
 		blurEClass.getESuperTypes().add(this.getInstruction());
 		framesEClass.getESuperTypes().add(this.getInstruction());
 		videoEClass.getESuperTypes().add(this.getInstruction());
+		audioEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProgram_Streams(), this.getStream(), null, "streams", null, 0, -1, Program.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Transforms(), this.getTransform(), null, "transforms", null, 0, -1, Program.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(inEClass, In.class, "In", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(outEClass, Out.class, "Out", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(tempEClass, Temp.class, "Temp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(streamEClass, Stream.class, "Stream", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStream_Path(), ecorePackage.getEString(), "path", null, 0, 1, Stream.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStream_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stream.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transformEClass, Transform.class, "Transform", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -508,9 +388,6 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransform_Output(), ecorePackage.getEString(), "output", null, 0, 1, Transform.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(outputStreamEClass, OutputStream.class, "OutputStream", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -525,6 +402,10 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 
 		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVideo_Input(), ecorePackage.getEString(), "input", null, 0, 1, Video.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(audioEClass, Audio.class, "Audio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAudio_Input(), ecorePackage.getEString(), "input", null, 0, 1, Audio.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

@@ -6,28 +6,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program returns Program:
 	{Program}
-	//(streams+=Stream)*
 	(transforms+=Transform)*
-;
-
-Stream returns Stream:
-	In | OutputStream
-;
-
-In returns In:
-	'in' name=STRING '\'' path=STRING '\'' ';'
-;
-
-OutputStream returns OutputStream:
-	Out | Temp
-;
-
-Out returns Out:
-	'out' name=STRING '\'' path=STRING '\'' ';'
-;
-
-Temp returns Temp:
-	'temp' name=STRING '\'' path=STRING '\'' ';'
 ;
 
 Transform returns Transform:
@@ -37,11 +16,15 @@ Transform returns Transform:
 ;
 
 Instruction returns Instruction:
-	(Video | Sepia | Blur) ';'
+	(Video | Audio | Sepia | Blur) ';'
 ;
 
 Video returns Video:
 	'video' input=STRING
+;
+
+Audio returns Audio:
+	'audio' input=STRING
 ;
 
 Sepia returns Sepia:

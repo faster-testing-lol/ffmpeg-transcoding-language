@@ -4,11 +4,10 @@
 package org.xtext.ftl.generator;
 
 import com.google.common.collect.Iterators;
-import ftl.In;
+import ftl.Audio;
 import ftl.Instruction;
 import ftl.Program;
 import ftl.Sepia;
-import ftl.Stream;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Arrays;
@@ -45,34 +44,13 @@ public class FTLGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Program program) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      EList<Stream> _streams = program.getStreams();
-      for(final Stream stream : _streams) {
-        Object _compile = this.compile(stream);
+      EList<Transform> _transforms = program.getTransforms();
+      for(final Transform transform : _transforms) {
+        Object _compile = this.compile(transform);
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
     }
-    {
-      EList<Transform> _transforms = program.getTransforms();
-      for(final Transform transform : _transforms) {
-        Object _compile_1 = this.compile(transform);
-        _builder.append(_compile_1);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  protected CharSequence _compile(final In in) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = in.getName();
-    _builder.append(_name);
-    _builder.append(" = \"");
-    String _path = in.getPath();
-    _builder.append(_path);
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
     return _builder;
   }
   
@@ -118,22 +96,31 @@ public class FTLGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final EObject in) {
-    if (in instanceof In) {
-      return _compile((In)in);
-    } else if (in instanceof Sepia) {
-      return _compile((Sepia)in);
-    } else if (in instanceof Video) {
-      return _compile((Video)in);
-    } else if (in instanceof Instruction) {
-      return _compile((Instruction)in);
-    } else if (in instanceof Program) {
-      return _compile((Program)in);
-    } else if (in instanceof Transform) {
-      return _compile((Transform)in);
+  protected CharSequence _compile(final Audio audio) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("audio=");
+    String _input = audio.getInput();
+    _builder.append(_input);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final EObject audio) {
+    if (audio instanceof Audio) {
+      return _compile((Audio)audio);
+    } else if (audio instanceof Sepia) {
+      return _compile((Sepia)audio);
+    } else if (audio instanceof Video) {
+      return _compile((Video)audio);
+    } else if (audio instanceof Instruction) {
+      return _compile((Instruction)audio);
+    } else if (audio instanceof Program) {
+      return _compile((Program)audio);
+    } else if (audio instanceof Transform) {
+      return _compile((Transform)audio);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(in).toString());
+        Arrays.<Object>asList(audio).toString());
     }
   }
 }

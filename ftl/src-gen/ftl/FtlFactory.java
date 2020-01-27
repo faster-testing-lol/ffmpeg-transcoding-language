@@ -31,33 +31,6 @@ public interface FtlFactory extends EFactory {
 	Program createProgram();
 
 	/**
-	 * Returns a new object of class '<em>In</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>In</em>'.
-	 * @generated
-	 */
-	In createIn();
-
-	/**
-	 * Returns a new object of class '<em>Out</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Out</em>'.
-	 * @generated
-	 */
-	Out createOut();
-
-	/**
-	 * Returns a new object of class '<em>Temp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Temp</em>'.
-	 * @generated
-	 */
-	Temp createTemp();
-
-	/**
 	 * Returns a new object of class '<em>Transform</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +74,15 @@ public interface FtlFactory extends EFactory {
 	 * @generated
 	 */
 	Video createVideo();
+
+	/**
+	 * Returns a new object of class '<em>Audio</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Audio</em>'.
+	 * @generated
+	 */
+	Audio createAudio();
 
 	/**
 	 * Returns the package supported by this factory.
