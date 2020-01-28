@@ -2,7 +2,7 @@
 
 DSL d'édition vidéo basé sur FFMPEG
 
-[https://foaas.com/you/eclipse/Seriously%20tho](https://foaas.com/you/eclipse/Seriously tho) 
+[https://foaas.com/you/eclipse/Seriously%20tho](https://foaas.com/you/eclipse/Seriously%20tho) 
 
 
 
