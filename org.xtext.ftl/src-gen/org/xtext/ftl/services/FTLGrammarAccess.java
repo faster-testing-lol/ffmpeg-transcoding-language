@@ -72,140 +72,409 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	public class TransformElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Transform");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cOutputAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cOutputSTRINGTerminalRuleCall_0_0 = (RuleCall)cOutputAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cInstructionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInstructionInstructionParserRuleCall_3_0 = (RuleCall)cInstructionAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Action cTransformAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cInputAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cInputInputParserRuleCall_1_0 = (RuleCall)cInputAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cInputAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cInputInputParserRuleCall_2_1_0 = (RuleCall)cInputAssignment_2_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInstructionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cInstructionInstructionParserRuleCall_4_1_0 = (RuleCall)cInstructionAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Keyword cGreaterThanSignKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Assignment cOutputAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cOutputSTRINGTerminalRuleCall_5_0 = (RuleCall)cOutputAssignment_5.eContents().get(0);
 		
 		//Transform:
-		//	output=STRING '=' '{'
+		//	{Transform} input+=Input (',' input+=Input)* '>' ('{'
 		//	instruction+=Instruction*
-		//	'}';
+		//	'}' '>')? output=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//output=STRING '=' '{' instruction+=Instruction* '}'
+		//{Transform} input+=Input (',' input+=Input)* '>' ('{' instruction+=Instruction* '}' '>')? output=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//output=STRING
-		public Assignment getOutputAssignment_0() { return cOutputAssignment_0; }
+		//{Transform}
+		public Action getTransformAction_0() { return cTransformAction_0; }
 		
-		//STRING
-		public RuleCall getOutputSTRINGTerminalRuleCall_0_0() { return cOutputSTRINGTerminalRuleCall_0_0; }
+		//input+=Input
+		public Assignment getInputAssignment_1() { return cInputAssignment_1; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		//Input
+		public RuleCall getInputInputParserRuleCall_1_0() { return cInputInputParserRuleCall_1_0; }
+		
+		//(',' input+=Input)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+		
+		//input+=Input
+		public Assignment getInputAssignment_2_1() { return cInputAssignment_2_1; }
+		
+		//Input
+		public RuleCall getInputInputParserRuleCall_2_1_0() { return cInputInputParserRuleCall_2_1_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_3() { return cGreaterThanSignKeyword_3; }
+		
+		//('{' instruction+=Instruction* '}' '>')?
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 		
 		//instruction+=Instruction*
-		public Assignment getInstructionAssignment_3() { return cInstructionAssignment_3; }
+		public Assignment getInstructionAssignment_4_1() { return cInstructionAssignment_4_1; }
 		
 		//Instruction
-		public RuleCall getInstructionInstructionParserRuleCall_3_0() { return cInstructionInstructionParserRuleCall_3_0; }
+		public RuleCall getInstructionInstructionParserRuleCall_4_1_0() { return cInstructionInstructionParserRuleCall_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_4_3() { return cGreaterThanSignKeyword_4_3; }
+		
+		//output=STRING
+		public Assignment getOutputAssignment_5() { return cOutputAssignment_5; }
+		
+		//STRING
+		public RuleCall getOutputSTRINGTerminalRuleCall_5_0() { return cOutputSTRINGTerminalRuleCall_5_0; }
+	}
+	public class InputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Input");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAudioParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cVideoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Input:
+		//	Audio | Video;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Audio | Video
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Audio
+		public RuleCall getAudioParserRuleCall_0() { return cAudioParserRuleCall_0; }
+		
+		//Video
+		public RuleCall getVideoParserRuleCall_1() { return cVideoParserRuleCall_1; }
+	}
+	public class VideoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Video");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cVideoAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cVideoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPathAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPathSTRINGTerminalRuleCall_2_0 = (RuleCall)cPathAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cVerticalLineKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPathAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPathSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cPathAssignment_3_1.eContents().get(0);
+		
+		//Video:
+		//	{Video}
+		//	'video' path+=STRING ('|' path+=STRING)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Video} 'video' path+=STRING ('|' path+=STRING)*
+		public Group getGroup() { return cGroup; }
+		
+		//{Video}
+		public Action getVideoAction_0() { return cVideoAction_0; }
+		
+		//'video'
+		public Keyword getVideoKeyword_1() { return cVideoKeyword_1; }
+		
+		//path+=STRING
+		public Assignment getPathAssignment_2() { return cPathAssignment_2; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_2_0() { return cPathSTRINGTerminalRuleCall_2_0; }
+		
+		//('|' path+=STRING)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_3_0() { return cVerticalLineKeyword_3_0; }
+		
+		//path+=STRING
+		public Assignment getPathAssignment_3_1() { return cPathAssignment_3_1; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_3_1_0() { return cPathSTRINGTerminalRuleCall_3_1_0; }
+	}
+	public class AudioElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Audio");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAudioAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cAudioKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPathAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPathSTRINGTerminalRuleCall_2_0 = (RuleCall)cPathAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cVerticalLineKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPathAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPathSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cPathAssignment_3_1.eContents().get(0);
+		
+		//Audio:
+		//	{Audio}
+		//	'audio' path+=STRING ('|' path+=STRING)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Audio} 'audio' path+=STRING ('|' path+=STRING)*
+		public Group getGroup() { return cGroup; }
+		
+		//{Audio}
+		public Action getAudioAction_0() { return cAudioAction_0; }
+		
+		//'audio'
+		public Keyword getAudioKeyword_1() { return cAudioKeyword_1; }
+		
+		//path+=STRING
+		public Assignment getPathAssignment_2() { return cPathAssignment_2; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_2_0() { return cPathSTRINGTerminalRuleCall_2_0; }
+		
+		//('|' path+=STRING)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_3_0() { return cVerticalLineKeyword_3_0; }
+		
+		//path+=STRING
+		public Assignment getPathAssignment_3_1() { return cPathAssignment_3_1; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_3_1_0() { return cPathSTRINGTerminalRuleCall_3_1_0; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Instruction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cVideoParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cAudioParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cSepiaParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final RuleCall cBlurParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
-		private final RuleCall cGrayscaleParserRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
-		private final RuleCall cScaleParserRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
-		private final RuleCall cSharpenParserRuleCall_0_6 = (RuleCall)cAlternatives_0.eContents().get(6);
-		private final RuleCall cReverseParserRuleCall_0_7 = (RuleCall)cAlternatives_0.eContents().get(7);
+		private final RuleCall cSepiaParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cBlurParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cGrayscaleParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
+		private final RuleCall cScaleParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
+		private final RuleCall cSharpenParserRuleCall_0_4 = (RuleCall)cAlternatives_0.eContents().get(4);
+		private final RuleCall cReverseParserRuleCall_0_5 = (RuleCall)cAlternatives_0.eContents().get(5);
+		private final RuleCall cMixParserRuleCall_0_6 = (RuleCall)cAlternatives_0.eContents().get(6);
+		private final RuleCall cEchoParserRuleCall_0_7 = (RuleCall)cAlternatives_0.eContents().get(7);
+		private final RuleCall cNegateParserRuleCall_0_8 = (RuleCall)cAlternatives_0.eContents().get(8);
+		private final RuleCall cFpsParserRuleCall_0_9 = (RuleCall)cAlternatives_0.eContents().get(9);
+		private final RuleCall cStartParserRuleCall_0_10 = (RuleCall)cAlternatives_0.eContents().get(10);
+		private final RuleCall cEndParserRuleCall_0_11 = (RuleCall)cAlternatives_0.eContents().get(11);
+		private final RuleCall cConcatParserRuleCall_0_12 = (RuleCall)cAlternatives_0.eContents().get(12);
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Instruction:
-		//	(Video | Audio | Sepia | Blur | Grayscale | Scale | Sharpen | Reverse) ';';
+		//	(Sepia | Blur | Grayscale | Scale | Sharpen | Reverse | Mix | Echo | Negate | Fps | Start | End | Concat) ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(Video | Audio | Sepia | Blur | Grayscale | Scale | Sharpen | Reverse) ';'
+		//(Sepia | Blur | Grayscale | Scale | Sharpen | Reverse | Mix | Echo | Negate | Fps | Start | End | Concat) ';'
 		public Group getGroup() { return cGroup; }
 		
-		//(Video | Audio | Sepia | Blur | Grayscale | Scale | Sharpen | Reverse)
+		//(Sepia | Blur | Grayscale | Scale | Sharpen | Reverse | Mix | Echo | Negate | Fps | Start | End | Concat)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//Video
-		public RuleCall getVideoParserRuleCall_0_0() { return cVideoParserRuleCall_0_0; }
-		
-		//Audio
-		public RuleCall getAudioParserRuleCall_0_1() { return cAudioParserRuleCall_0_1; }
-		
 		//Sepia
-		public RuleCall getSepiaParserRuleCall_0_2() { return cSepiaParserRuleCall_0_2; }
+		public RuleCall getSepiaParserRuleCall_0_0() { return cSepiaParserRuleCall_0_0; }
 		
 		//Blur
-		public RuleCall getBlurParserRuleCall_0_3() { return cBlurParserRuleCall_0_3; }
+		public RuleCall getBlurParserRuleCall_0_1() { return cBlurParserRuleCall_0_1; }
 		
 		//Grayscale
-		public RuleCall getGrayscaleParserRuleCall_0_4() { return cGrayscaleParserRuleCall_0_4; }
+		public RuleCall getGrayscaleParserRuleCall_0_2() { return cGrayscaleParserRuleCall_0_2; }
 		
 		//Scale
-		public RuleCall getScaleParserRuleCall_0_5() { return cScaleParserRuleCall_0_5; }
+		public RuleCall getScaleParserRuleCall_0_3() { return cScaleParserRuleCall_0_3; }
 		
 		//Sharpen
-		public RuleCall getSharpenParserRuleCall_0_6() { return cSharpenParserRuleCall_0_6; }
+		public RuleCall getSharpenParserRuleCall_0_4() { return cSharpenParserRuleCall_0_4; }
 		
 		//Reverse
-		public RuleCall getReverseParserRuleCall_0_7() { return cReverseParserRuleCall_0_7; }
+		public RuleCall getReverseParserRuleCall_0_5() { return cReverseParserRuleCall_0_5; }
+		
+		//Mix
+		public RuleCall getMixParserRuleCall_0_6() { return cMixParserRuleCall_0_6; }
+		
+		//Echo
+		public RuleCall getEchoParserRuleCall_0_7() { return cEchoParserRuleCall_0_7; }
+		
+		//Negate
+		public RuleCall getNegateParserRuleCall_0_8() { return cNegateParserRuleCall_0_8; }
+		
+		//Fps
+		public RuleCall getFpsParserRuleCall_0_9() { return cFpsParserRuleCall_0_9; }
+		
+		//Start
+		public RuleCall getStartParserRuleCall_0_10() { return cStartParserRuleCall_0_10; }
+		
+		//End
+		public RuleCall getEndParserRuleCall_0_11() { return cEndParserRuleCall_0_11; }
+		
+		//Concat
+		public RuleCall getConcatParserRuleCall_0_12() { return cConcatParserRuleCall_0_12; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
 	}
-	public class VideoElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Video");
+	public class StartElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Start");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVideoKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cInputAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cInputSTRINGTerminalRuleCall_1_0 = (RuleCall)cInputAssignment_1.eContents().get(0);
+		private final Action cStartAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cStartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTimeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTimeFloatParserRuleCall_2_0 = (RuleCall)cTimeAssignment_2.eContents().get(0);
 		
-		//Video:
-		//	'video' input=STRING;
+		//Start:
+		//	{Start}
+		//	'start' time=Float;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'video' input=STRING
+		//{Start} 'start' time=Float
 		public Group getGroup() { return cGroup; }
 		
-		//'video'
-		public Keyword getVideoKeyword_0() { return cVideoKeyword_0; }
+		//{Start}
+		public Action getStartAction_0() { return cStartAction_0; }
 		
-		//input=STRING
-		public Assignment getInputAssignment_1() { return cInputAssignment_1; }
+		//'start'
+		public Keyword getStartKeyword_1() { return cStartKeyword_1; }
 		
-		//STRING
-		public RuleCall getInputSTRINGTerminalRuleCall_1_0() { return cInputSTRINGTerminalRuleCall_1_0; }
+		//time=Float
+		public Assignment getTimeAssignment_2() { return cTimeAssignment_2; }
+		
+		//Float
+		public RuleCall getTimeFloatParserRuleCall_2_0() { return cTimeFloatParserRuleCall_2_0; }
 	}
-	public class AudioElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Audio");
+	public class EndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.End");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAudioKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cInputAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cInputSTRINGTerminalRuleCall_1_0 = (RuleCall)cInputAssignment_1.eContents().get(0);
+		private final Action cEndAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cEndKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTimeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTimeFloatParserRuleCall_2_0 = (RuleCall)cTimeAssignment_2.eContents().get(0);
 		
-		//Audio:
-		//	'audio' input=STRING;
+		//End:
+		//	{End}
+		//	'end' time=Float;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'audio' input=STRING
+		//{End} 'end' time=Float
 		public Group getGroup() { return cGroup; }
 		
-		//'audio'
-		public Keyword getAudioKeyword_0() { return cAudioKeyword_0; }
+		//{End}
+		public Action getEndAction_0() { return cEndAction_0; }
 		
-		//input=STRING
-		public Assignment getInputAssignment_1() { return cInputAssignment_1; }
+		//'end'
+		public Keyword getEndKeyword_1() { return cEndKeyword_1; }
 		
-		//STRING
-		public RuleCall getInputSTRINGTerminalRuleCall_1_0() { return cInputSTRINGTerminalRuleCall_1_0; }
+		//time=Float
+		public Assignment getTimeAssignment_2() { return cTimeAssignment_2; }
+		
+		//Float
+		public RuleCall getTimeFloatParserRuleCall_2_0() { return cTimeFloatParserRuleCall_2_0; }
+	}
+	public class FpsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Fps");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFpsAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFpsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//Fps:
+		//	{Fps}
+		//	'fps' value=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Fps} 'fps' value=INT
+		public Group getGroup() { return cGroup; }
+		
+		//{Fps}
+		public Action getFpsAction_0() { return cFpsAction_0; }
+		
+		//'fps'
+		public Keyword getFpsKeyword_1() { return cFpsKeyword_1; }
+		
+		//value=INT
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
+	}
+	public class NegateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Negate");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNegateAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNegateKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Negate:
+		//	{Negate}
+		//	'negate';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Negate} 'negate'
+		public Group getGroup() { return cGroup; }
+		
+		//{Negate}
+		public Action getNegateAction_0() { return cNegateAction_0; }
+		
+		//'negate'
+		public Keyword getNegateKeyword_1() { return cNegateKeyword_1; }
+	}
+	public class EchoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Echo");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEchoAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cEchoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDelayAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDelayINTTerminalRuleCall_2_0 = (RuleCall)cDelayAssignment_2.eContents().get(0);
+		
+		//Echo:
+		//	{Echo}
+		//	'echo' delay=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Echo} 'echo' delay=INT
+		public Group getGroup() { return cGroup; }
+		
+		//{Echo}
+		public Action getEchoAction_0() { return cEchoAction_0; }
+		
+		//'echo'
+		public Keyword getEchoKeyword_1() { return cEchoKeyword_1; }
+		
+		//delay=INT
+		public Assignment getDelayAssignment_2() { return cDelayAssignment_2; }
+		
+		//INT
+		public RuleCall getDelayINTTerminalRuleCall_2_0() { return cDelayINTTerminalRuleCall_2_0; }
+	}
+	public class MixElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Mix");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMixAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMixKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Mix:
+		//	{Mix}
+		//	'mix';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Mix} 'mix'
+		public Group getGroup() { return cGroup; }
+		
+		//{Mix}
+		public Action getMixAction_0() { return cMixAction_0; }
+		
+		//'mix'
+		public Keyword getMixKeyword_1() { return cMixKeyword_1; }
 	}
 	public class SepiaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Sepia");
@@ -230,25 +499,30 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	public class BlurElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Blur");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBlurKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRadiusAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRadiusINTTerminalRuleCall_1_0 = (RuleCall)cRadiusAssignment_1.eContents().get(0);
+		private final Action cBlurAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cBlurKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRadiusAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRadiusINTTerminalRuleCall_2_0 = (RuleCall)cRadiusAssignment_2.eContents().get(0);
 		
 		//Blur:
+		//	{Blur}
 		//	'blur' radius=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'blur' radius=INT
+		//{Blur} 'blur' radius=INT
 		public Group getGroup() { return cGroup; }
 		
+		//{Blur}
+		public Action getBlurAction_0() { return cBlurAction_0; }
+		
 		//'blur'
-		public Keyword getBlurKeyword_0() { return cBlurKeyword_0; }
+		public Keyword getBlurKeyword_1() { return cBlurKeyword_1; }
 		
 		//radius=INT
-		public Assignment getRadiusAssignment_1() { return cRadiusAssignment_1; }
+		public Assignment getRadiusAssignment_2() { return cRadiusAssignment_2; }
 		
 		//INT
-		public RuleCall getRadiusINTTerminalRuleCall_1_0() { return cRadiusINTTerminalRuleCall_1_0; }
+		public RuleCall getRadiusINTTerminalRuleCall_2_0() { return cRadiusINTTerminalRuleCall_2_0; }
 	}
 	public class GrayscaleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Grayscale");
@@ -333,20 +607,48 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		//'reverse'
 		public Keyword getReverseKeyword_1() { return cReverseKeyword_1; }
 	}
+	public class ConcatElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.ftl.FTL.Concat");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConcatAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cConcatKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Concat:
+		//	{Concat}
+		//	'concat';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Concat} 'concat'
+		public Group getGroup() { return cGroup; }
+		
+		//{Concat}
+		public Action getConcatAction_0() { return cConcatAction_0; }
+		
+		//'concat'
+		public Keyword getConcatKeyword_1() { return cConcatKeyword_1; }
+	}
 	
 	
 	private final ProgramElements pProgram;
 	private final FloatElements pFloat;
 	private final TransformElements pTransform;
-	private final InstructionElements pInstruction;
+	private final InputElements pInput;
 	private final VideoElements pVideo;
 	private final AudioElements pAudio;
+	private final InstructionElements pInstruction;
+	private final StartElements pStart;
+	private final EndElements pEnd;
+	private final FpsElements pFps;
+	private final NegateElements pNegate;
+	private final EchoElements pEcho;
+	private final MixElements pMix;
 	private final SepiaElements pSepia;
 	private final BlurElements pBlur;
 	private final GrayscaleElements pGrayscale;
 	private final ScaleElements pScale;
 	private final SharpenElements pSharpen;
 	private final ReverseElements pReverse;
+	private final ConcatElements pConcat;
 	
 	private final Grammar grammar;
 	
@@ -360,15 +662,23 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProgram = new ProgramElements();
 		this.pFloat = new FloatElements();
 		this.pTransform = new TransformElements();
-		this.pInstruction = new InstructionElements();
+		this.pInput = new InputElements();
 		this.pVideo = new VideoElements();
 		this.pAudio = new AudioElements();
+		this.pInstruction = new InstructionElements();
+		this.pStart = new StartElements();
+		this.pEnd = new EndElements();
+		this.pFps = new FpsElements();
+		this.pNegate = new NegateElements();
+		this.pEcho = new EchoElements();
+		this.pMix = new MixElements();
 		this.pSepia = new SepiaElements();
 		this.pBlur = new BlurElements();
 		this.pGrayscale = new GrayscaleElements();
 		this.pScale = new ScaleElements();
 		this.pSharpen = new SharpenElements();
 		this.pReverse = new ReverseElements();
+		this.pConcat = new ConcatElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -419,9 +729,9 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transform:
-	//	output=STRING '=' '{'
+	//	{Transform} input+=Input (',' input+=Input)* '>' ('{'
 	//	instruction+=Instruction*
-	//	'}';
+	//	'}' '>')? output=STRING;
 	public TransformElements getTransformAccess() {
 		return pTransform;
 	}
@@ -430,18 +740,19 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransformAccess().getRule();
 	}
 	
-	//Instruction:
-	//	(Video | Audio | Sepia | Blur | Grayscale | Scale | Sharpen | Reverse) ';';
-	public InstructionElements getInstructionAccess() {
-		return pInstruction;
+	//Input:
+	//	Audio | Video;
+	public InputElements getInputAccess() {
+		return pInput;
 	}
 	
-	public ParserRule getInstructionRule() {
-		return getInstructionAccess().getRule();
+	public ParserRule getInputRule() {
+		return getInputAccess().getRule();
 	}
 	
 	//Video:
-	//	'video' input=STRING;
+	//	{Video}
+	//	'video' path+=STRING ('|' path+=STRING)*;
 	public VideoElements getVideoAccess() {
 		return pVideo;
 	}
@@ -451,13 +762,90 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Audio:
-	//	'audio' input=STRING;
+	//	{Audio}
+	//	'audio' path+=STRING ('|' path+=STRING)*;
 	public AudioElements getAudioAccess() {
 		return pAudio;
 	}
 	
 	public ParserRule getAudioRule() {
 		return getAudioAccess().getRule();
+	}
+	
+	//Instruction:
+	//	(Sepia | Blur | Grayscale | Scale | Sharpen | Reverse | Mix | Echo | Negate | Fps | Start | End | Concat) ';';
+	public InstructionElements getInstructionAccess() {
+		return pInstruction;
+	}
+	
+	public ParserRule getInstructionRule() {
+		return getInstructionAccess().getRule();
+	}
+	
+	//Start:
+	//	{Start}
+	//	'start' time=Float;
+	public StartElements getStartAccess() {
+		return pStart;
+	}
+	
+	public ParserRule getStartRule() {
+		return getStartAccess().getRule();
+	}
+	
+	//End:
+	//	{End}
+	//	'end' time=Float;
+	public EndElements getEndAccess() {
+		return pEnd;
+	}
+	
+	public ParserRule getEndRule() {
+		return getEndAccess().getRule();
+	}
+	
+	//Fps:
+	//	{Fps}
+	//	'fps' value=INT;
+	public FpsElements getFpsAccess() {
+		return pFps;
+	}
+	
+	public ParserRule getFpsRule() {
+		return getFpsAccess().getRule();
+	}
+	
+	//Negate:
+	//	{Negate}
+	//	'negate';
+	public NegateElements getNegateAccess() {
+		return pNegate;
+	}
+	
+	public ParserRule getNegateRule() {
+		return getNegateAccess().getRule();
+	}
+	
+	//Echo:
+	//	{Echo}
+	//	'echo' delay=INT;
+	public EchoElements getEchoAccess() {
+		return pEcho;
+	}
+	
+	public ParserRule getEchoRule() {
+		return getEchoAccess().getRule();
+	}
+	
+	//Mix:
+	//	{Mix}
+	//	'mix';
+	public MixElements getMixAccess() {
+		return pMix;
+	}
+	
+	public ParserRule getMixRule() {
+		return getMixAccess().getRule();
 	}
 	
 	//Sepia:
@@ -472,6 +860,7 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Blur:
+	//	{Blur}
 	//	'blur' radius=INT;
 	public BlurElements getBlurAccess() {
 		return pBlur;
@@ -522,6 +911,17 @@ public class FTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getReverseRule() {
 		return getReverseAccess().getRule();
+	}
+	
+	//Concat:
+	//	{Concat}
+	//	'concat';
+	public ConcatElements getConcatAccess() {
+		return pConcat;
+	}
+	
+	public ParserRule getConcatRule() {
+		return getConcatAccess().getRule();
 	}
 	
 	//terminal ID:

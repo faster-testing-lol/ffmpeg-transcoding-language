@@ -5,16 +5,26 @@ package org.xtext.ftl.generator;
 
 import com.google.common.collect.Iterators;
 import ftl.Audio;
+import ftl.Blur;
+import ftl.Concat;
+import ftl.Echo;
+import ftl.End;
+import ftl.Fps;
 import ftl.Grayscale;
+import ftl.Input;
 import ftl.Instruction;
+import ftl.Mix;
+import ftl.Negate;
 import ftl.Program;
 import ftl.Reverse;
 import ftl.Scale;
 import ftl.Sepia;
 import ftl.Sharpen;
+import ftl.Start;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Arrays;
+import java.util.Random;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -60,8 +70,51 @@ public class FTLGenerator extends AbstractGenerator {
   
   protected CharSequence _compile(final Transform transform) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("ffmpeg -y -filter_complex \"");
+    _builder.append("ffmpeg \\");
     _builder.newLine();
+    {
+      EList<Input> _input = transform.getInput();
+      for(final Input input : _input) {
+        _builder.append("-i ");
+        String _get = input.getPath().get(new Random().nextInt(input.getPath().size()));
+        _builder.append(_get);
+        _builder.append(" \\");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    int i = 0;
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Input> _input_1 = transform.getInput();
+      for(final Input input_1 : _input_1) {
+        {
+          if ((input_1 instanceof Audio)) {
+            _builder.append("-map ");
+            int _plusPlus = i++;
+            _builder.append(_plusPlus);
+            _builder.append(":a \\");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          if ((input_1 instanceof Video)) {
+            _builder.append("-map ");
+            int _plusPlus_1 = i++;
+            _builder.append(_plusPlus_1);
+            _builder.append(":v \\");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      int _size = transform.getInstruction().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("-y -filter_complex \"");
+        _builder.newLine();
+      }
+    }
     {
       EList<Instruction> _instruction = transform.getInstruction();
       boolean _hasElements = false;
@@ -75,10 +128,13 @@ public class FTLGenerator extends AbstractGenerator {
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
+      if (_hasElements) {
+        _builder.append("\"");
+      }
     }
-    _builder.append("\" ");
+    _builder.append(" ");
     String _output = transform.getOutput();
-    _builder.append(_output);
+    _builder.append(_output, " ");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -98,24 +154,6 @@ public class FTLGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _compile(final Video video) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("movie=");
-    String _input = video.getInput();
-    _builder.append(_input);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  protected CharSequence _compile(final Audio audio) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("audio=");
-    String _input = audio.getInput();
-    _builder.append(_input);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
   protected CharSequence _compile(final Sharpen sharpen) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("convolution=\\\"0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0\\\"");
@@ -127,6 +165,15 @@ public class FTLGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("reverse");
     _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Blur blur) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("avgblur=sizeX=");
+    int _radius = blur.getRadius();
+    _builder.append(_radius);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -143,30 +190,100 @@ public class FTLGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final EObject audio) {
-    if (audio instanceof Audio) {
-      return _compile((Audio)audio);
-    } else if (audio instanceof Grayscale) {
-      return _compile((Grayscale)audio);
-    } else if (audio instanceof Reverse) {
-      return _compile((Reverse)audio);
-    } else if (audio instanceof Scale) {
-      return _compile((Scale)audio);
-    } else if (audio instanceof Sepia) {
-      return _compile((Sepia)audio);
-    } else if (audio instanceof Sharpen) {
-      return _compile((Sharpen)audio);
-    } else if (audio instanceof Video) {
-      return _compile((Video)audio);
-    } else if (audio instanceof Instruction) {
-      return _compile((Instruction)audio);
-    } else if (audio instanceof Program) {
-      return _compile((Program)audio);
-    } else if (audio instanceof Transform) {
-      return _compile((Transform)audio);
+  protected CharSequence _compile(final Start start) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("trim=start=");
+    float _time = start.getTime();
+    _builder.append(_time);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final End end) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("trim=end=");
+    float _time = end.getTime();
+    _builder.append(_time);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Mix mix) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("mix");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Echo echo) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("aecho=0.6:0.3:");
+    int _delay = echo.getDelay();
+    _builder.append(_delay);
+    _builder.append(":0.5");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Negate negate) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("negate");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Fps fps) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("fps=fps=");
+    int _value = fps.getValue();
+    _builder.append(_value);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Concat concat) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("concat");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final EObject blur) {
+    if (blur instanceof Blur) {
+      return _compile((Blur)blur);
+    } else if (blur instanceof Concat) {
+      return _compile((Concat)blur);
+    } else if (blur instanceof Echo) {
+      return _compile((Echo)blur);
+    } else if (blur instanceof End) {
+      return _compile((End)blur);
+    } else if (blur instanceof Fps) {
+      return _compile((Fps)blur);
+    } else if (blur instanceof Grayscale) {
+      return _compile((Grayscale)blur);
+    } else if (blur instanceof Mix) {
+      return _compile((Mix)blur);
+    } else if (blur instanceof Negate) {
+      return _compile((Negate)blur);
+    } else if (blur instanceof Reverse) {
+      return _compile((Reverse)blur);
+    } else if (blur instanceof Scale) {
+      return _compile((Scale)blur);
+    } else if (blur instanceof Sepia) {
+      return _compile((Sepia)blur);
+    } else if (blur instanceof Sharpen) {
+      return _compile((Sharpen)blur);
+    } else if (blur instanceof Start) {
+      return _compile((Start)blur);
+    } else if (blur instanceof Instruction) {
+      return _compile((Instruction)blur);
+    } else if (blur instanceof Program) {
+      return _compile((Program)blur);
+    } else if (blur instanceof Transform) {
+      return _compile((Transform)blur);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(audio).toString());
+        Arrays.<Object>asList(blur).toString());
     }
   }
 }

@@ -11,24 +11,61 @@ Program returns Program:
 ;
 
 Float returns type::Float:
-	INT'.'INT;
-
-Transform returns Transform:
-	output=STRING '=' '{'
-		(instruction+=Instruction)*
-	'}'
+	INT'.'INT
 ;
 
-Instruction returns Instruction:
-	(Video | Audio | Sepia | Blur | Grayscale | Scale | Sharpen | Reverse) ';'
+Transform returns Transform:
+	{Transform}
+	input+=Input (',' input+=Input)* '>' ('{'
+		(instruction+=Instruction)*
+	'}' '>')? output=STRING
+;
+
+Input returns Input:
+	(Audio | Video)
 ;
 
 Video returns Video:
-	'video' input=STRING
+	{Video}
+	'video' path+=STRING ('|' path+=STRING)*
 ;
 
 Audio returns Audio:
-	'audio' input=STRING
+	{Audio}
+	'audio' path+=STRING ('|' path+=STRING)*
+;
+Instruction returns Instruction:
+	(Sepia | Blur | Grayscale | Scale | Sharpen | Reverse | Mix | Echo | Negate | Fps | Start | End | Concat) ';'
+;
+
+Start returns Start:
+	{Start}
+	'start' time=Float
+;
+
+End returns End:
+	{End}
+	'end' time=Float
+;
+
+Fps returns Fps:
+	{Fps}
+	'fps' value=INT
+;
+
+Negate returns Negate:
+	{Negate}
+	'negate'
+;
+
+Echo returns Echo:
+	{Echo}
+	'echo' delay=INT
+;
+
+Mix returns Mix:
+	{Mix}
+	'mix'
 ;
 
 Sepia returns Sepia:
@@ -37,6 +74,7 @@ Sepia returns Sepia:
 ;
 
 Blur returns Blur:
+	{Blur}
 	'blur' radius=INT
 ;
 
@@ -57,6 +95,11 @@ Sharpen returns Sharpen:
 Reverse returns Reverse:
 	{Reverse}
 	'reverse'
+;
+
+Concat returns Concat:
+	{Concat}
+	'concat'
 ;
 
 

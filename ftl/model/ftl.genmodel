@@ -14,18 +14,15 @@
     <genClasses ecoreClass="ftl.ecore#//Transform">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftl.ecore#//Transform/instruction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Transform/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ftl.ecore#//Transform/input"/>
     </genClasses>
     <genClasses ecoreClass="ftl.ecore#//Instruction"/>
     <genClasses ecoreClass="ftl.ecore#//Sepia"/>
     <genClasses ecoreClass="ftl.ecore#//Blur">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Blur/radius"/>
     </genClasses>
-    <genClasses ecoreClass="ftl.ecore#//frames"/>
-    <genClasses ecoreClass="ftl.ecore#//Video">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Video/input"/>
-    </genClasses>
-    <genClasses ecoreClass="ftl.ecore#//Audio">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Audio/input"/>
+    <genClasses ecoreClass="ftl.ecore#//Fps">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Fps/value"/>
     </genClasses>
     <genClasses ecoreClass="ftl.ecore#//Grayscale"/>
     <genClasses ecoreClass="ftl.ecore#//Reverse"/>
@@ -33,5 +30,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Scale/factor"/>
     </genClasses>
     <genClasses ecoreClass="ftl.ecore#//Sharpen"/>
+    <genClasses ecoreClass="ftl.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Input/path"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Video"/>
+    <genClasses ecoreClass="ftl.ecore#//Audio"/>
+    <genClasses ecoreClass="ftl.ecore#//Negate"/>
+    <genClasses ecoreClass="ftl.ecore#//Echo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Echo/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Mix"/>
+    <genClasses ecoreClass="ftl.ecore#//Start">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//Start/time"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//End">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftl.ecore#//End/time"/>
+    </genClasses>
+    <genClasses ecoreClass="ftl.ecore#//Concat"/>
   </genPackages>
 </genmodel:GenModel>

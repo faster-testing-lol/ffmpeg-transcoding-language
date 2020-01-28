@@ -3,6 +3,7 @@
 package ftl.impl;
 
 import ftl.FtlPackage;
+import ftl.Input;
 import ftl.Instruction;
 import ftl.Transform;
 
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ftl.impl.TransformImpl#getInstruction <em>Instruction</em>}</li>
  *   <li>{@link ftl.impl.TransformImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link ftl.impl.TransformImpl#getInput <em>Input</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,16 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * @ordered
 	 */
 	protected String output = OUTPUT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInput()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Input> input;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,10 +140,25 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 	 * @generated
 	 */
 	@Override
+	public EList<Input> getInput() {
+		if (input == null) {
+			input = new EObjectContainmentEList<Input>(Input.class, this, FtlPackage.TRANSFORM__INPUT);
+		}
+		return input;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case FtlPackage.TRANSFORM__INSTRUCTION:
 			return ((InternalEList<?>) getInstruction()).basicRemove(otherEnd, msgs);
+		case FtlPackage.TRANSFORM__INPUT:
+			return ((InternalEList<?>) getInput()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,6 +175,8 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 			return getInstruction();
 		case FtlPackage.TRANSFORM__OUTPUT:
 			return getOutput();
+		case FtlPackage.TRANSFORM__INPUT:
+			return getInput();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,6 +197,10 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 		case FtlPackage.TRANSFORM__OUTPUT:
 			setOutput((String) newValue);
 			return;
+		case FtlPackage.TRANSFORM__INPUT:
+			getInput().clear();
+			getInput().addAll((Collection<? extends Input>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -187,6 +219,9 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 		case FtlPackage.TRANSFORM__OUTPUT:
 			setOutput(OUTPUT_EDEFAULT);
 			return;
+		case FtlPackage.TRANSFORM__INPUT:
+			getInput().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,6 +238,8 @@ public class TransformImpl extends MinimalEObjectImpl.Container implements Trans
 			return instruction != null && !instruction.isEmpty();
 		case FtlPackage.TRANSFORM__OUTPUT:
 			return OUTPUT_EDEFAULT == null ? output != null : !OUTPUT_EDEFAULT.equals(output);
+		case FtlPackage.TRANSFORM__INPUT:
+			return input != null && !input.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

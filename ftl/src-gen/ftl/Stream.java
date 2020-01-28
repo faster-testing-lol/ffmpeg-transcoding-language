@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ftl.Stream#getPath <em>Path</em>}</li>
  *   <li>{@link ftl.Stream#getName <em>Name</em>}</li>
+ *   <li>{@link ftl.Stream#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see ftl.FtlPackage#getStream()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Stream extends EObject {

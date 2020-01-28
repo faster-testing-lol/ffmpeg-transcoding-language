@@ -31,25 +31,45 @@ public class FTLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, FTLGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getInputAccess().getAlternatives(), "rule__Input__Alternatives");
 			builder.put(grammarAccess.getInstructionAccess().getAlternatives_0(), "rule__Instruction__Alternatives_0");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 			builder.put(grammarAccess.getFloatAccess().getGroup(), "rule__Float__Group__0");
 			builder.put(grammarAccess.getTransformAccess().getGroup(), "rule__Transform__Group__0");
-			builder.put(grammarAccess.getInstructionAccess().getGroup(), "rule__Instruction__Group__0");
+			builder.put(grammarAccess.getTransformAccess().getGroup_2(), "rule__Transform__Group_2__0");
+			builder.put(grammarAccess.getTransformAccess().getGroup_4(), "rule__Transform__Group_4__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup(), "rule__Video__Group__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_3(), "rule__Video__Group_3__0");
 			builder.put(grammarAccess.getAudioAccess().getGroup(), "rule__Audio__Group__0");
+			builder.put(grammarAccess.getAudioAccess().getGroup_3(), "rule__Audio__Group_3__0");
+			builder.put(grammarAccess.getInstructionAccess().getGroup(), "rule__Instruction__Group__0");
+			builder.put(grammarAccess.getStartAccess().getGroup(), "rule__Start__Group__0");
+			builder.put(grammarAccess.getEndAccess().getGroup(), "rule__End__Group__0");
+			builder.put(grammarAccess.getFpsAccess().getGroup(), "rule__Fps__Group__0");
+			builder.put(grammarAccess.getNegateAccess().getGroup(), "rule__Negate__Group__0");
+			builder.put(grammarAccess.getEchoAccess().getGroup(), "rule__Echo__Group__0");
+			builder.put(grammarAccess.getMixAccess().getGroup(), "rule__Mix__Group__0");
 			builder.put(grammarAccess.getSepiaAccess().getGroup(), "rule__Sepia__Group__0");
 			builder.put(grammarAccess.getBlurAccess().getGroup(), "rule__Blur__Group__0");
 			builder.put(grammarAccess.getGrayscaleAccess().getGroup(), "rule__Grayscale__Group__0");
 			builder.put(grammarAccess.getScaleAccess().getGroup(), "rule__Scale__Group__0");
 			builder.put(grammarAccess.getSharpenAccess().getGroup(), "rule__Sharpen__Group__0");
 			builder.put(grammarAccess.getReverseAccess().getGroup(), "rule__Reverse__Group__0");
+			builder.put(grammarAccess.getConcatAccess().getGroup(), "rule__Concat__Group__0");
 			builder.put(grammarAccess.getProgramAccess().getTransformsAssignment_1(), "rule__Program__TransformsAssignment_1");
-			builder.put(grammarAccess.getTransformAccess().getOutputAssignment_0(), "rule__Transform__OutputAssignment_0");
-			builder.put(grammarAccess.getTransformAccess().getInstructionAssignment_3(), "rule__Transform__InstructionAssignment_3");
-			builder.put(grammarAccess.getVideoAccess().getInputAssignment_1(), "rule__Video__InputAssignment_1");
-			builder.put(grammarAccess.getAudioAccess().getInputAssignment_1(), "rule__Audio__InputAssignment_1");
-			builder.put(grammarAccess.getBlurAccess().getRadiusAssignment_1(), "rule__Blur__RadiusAssignment_1");
+			builder.put(grammarAccess.getTransformAccess().getInputAssignment_1(), "rule__Transform__InputAssignment_1");
+			builder.put(grammarAccess.getTransformAccess().getInputAssignment_2_1(), "rule__Transform__InputAssignment_2_1");
+			builder.put(grammarAccess.getTransformAccess().getInstructionAssignment_4_1(), "rule__Transform__InstructionAssignment_4_1");
+			builder.put(grammarAccess.getTransformAccess().getOutputAssignment_5(), "rule__Transform__OutputAssignment_5");
+			builder.put(grammarAccess.getVideoAccess().getPathAssignment_2(), "rule__Video__PathAssignment_2");
+			builder.put(grammarAccess.getVideoAccess().getPathAssignment_3_1(), "rule__Video__PathAssignment_3_1");
+			builder.put(grammarAccess.getAudioAccess().getPathAssignment_2(), "rule__Audio__PathAssignment_2");
+			builder.put(grammarAccess.getAudioAccess().getPathAssignment_3_1(), "rule__Audio__PathAssignment_3_1");
+			builder.put(grammarAccess.getStartAccess().getTimeAssignment_2(), "rule__Start__TimeAssignment_2");
+			builder.put(grammarAccess.getEndAccess().getTimeAssignment_2(), "rule__End__TimeAssignment_2");
+			builder.put(grammarAccess.getFpsAccess().getValueAssignment_2(), "rule__Fps__ValueAssignment_2");
+			builder.put(grammarAccess.getEchoAccess().getDelayAssignment_2(), "rule__Echo__DelayAssignment_2");
+			builder.put(grammarAccess.getBlurAccess().getRadiusAssignment_2(), "rule__Blur__RadiusAssignment_2");
 			builder.put(grammarAccess.getScaleAccess().getFactorAssignment_1(), "rule__Scale__FactorAssignment_1");
 		}
 	}

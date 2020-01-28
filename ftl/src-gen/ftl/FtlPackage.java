@@ -122,13 +122,22 @@ public interface FtlPackage extends EPackage {
 	int TRANSFORM__OUTPUT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSFORM__INPUT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Transform</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORM_FEATURE_COUNT = 2;
+	int TRANSFORM_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Transform</em>' class.
@@ -233,32 +242,41 @@ public interface FtlPackage extends EPackage {
 	int BLUR_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ftl.impl.framesImpl <em>frames</em>}' class.
+	 * The meta object id for the '{@link ftl.impl.FpsImpl <em>Fps</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ftl.impl.framesImpl
-	 * @see ftl.impl.FtlPackageImpl#getframes()
+	 * @see ftl.impl.FpsImpl
+	 * @see ftl.impl.FtlPackageImpl#getFps()
 	 * @generated
 	 */
-	int FRAMES = 5;
+	int FPS = 5;
 
 	/**
-	 * The number of structural features of the '<em>frames</em>' class.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAMES_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+	int FPS__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>frames</em>' class.
+	 * The number of structural features of the '<em>Fps</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAMES_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+	int FPS_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Fps</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FPS_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ftl.impl.VideoImpl <em>Video</em>}' class.
@@ -268,34 +286,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getVideo()
 	 * @generated
 	 */
-	int VIDEO = 6;
-
-	/**
-	 * The feature id for the '<em><b>Input</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__INPUT = INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Video</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Video</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+	int VIDEO = 11;
 
 	/**
 	 * The meta object id for the '{@link ftl.impl.AudioImpl <em>Audio</em>}' class.
@@ -305,34 +296,57 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getAudio()
 	 * @generated
 	 */
-	int AUDIO = 7;
+	int AUDIO = 12;
 
 	/**
-	 * The feature id for the '<em><b>Input</b></em>' attribute.
+	 * The meta object id for the '{@link ftl.impl.NegateImpl <em>Negate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ftl.impl.NegateImpl
+	 * @see ftl.impl.FtlPackageImpl#getNegate()
 	 * @generated
-	 * @ordered
 	 */
-	int AUDIO__INPUT = INSTRUCTION_FEATURE_COUNT + 0;
+	int NEGATE = 13;
 
 	/**
-	 * The number of structural features of the '<em>Audio</em>' class.
+	 * The meta object id for the '{@link ftl.impl.EchoImpl <em>Echo</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ftl.impl.EchoImpl
+	 * @see ftl.impl.FtlPackageImpl#getEcho()
 	 * @generated
-	 * @ordered
 	 */
-	int AUDIO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+	int ECHO = 14;
 
 	/**
-	 * The number of operations of the '<em>Audio</em>' class.
+	 * The meta object id for the '{@link ftl.impl.MixImpl <em>Mix</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ftl.impl.MixImpl
+	 * @see ftl.impl.FtlPackageImpl#getMix()
 	 * @generated
-	 * @ordered
 	 */
-	int AUDIO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+	int MIX = 15;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.StartImpl <em>Start</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.StartImpl
+	 * @see ftl.impl.FtlPackageImpl#getStart()
+	 * @generated
+	 */
+	int START = 16;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.EndImpl <em>End</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.EndImpl
+	 * @see ftl.impl.FtlPackageImpl#getEnd()
+	 * @generated
+	 */
+	int END = 17;
 
 	/**
 	 * The meta object id for the '{@link ftl.impl.GrayscaleImpl <em>Grayscale</em>}' class.
@@ -342,7 +356,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getGrayscale()
 	 * @generated
 	 */
-	int GRAYSCALE = 8;
+	int GRAYSCALE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Grayscale</em>' class.
@@ -370,7 +384,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getReverse()
 	 * @generated
 	 */
-	int REVERSE = 9;
+	int REVERSE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Reverse</em>' class.
@@ -398,7 +412,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getScale()
 	 * @generated
 	 */
-	int SCALE = 10;
+	int SCALE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Factor</b></em>' attribute.
@@ -435,7 +449,7 @@ public interface FtlPackage extends EPackage {
 	 * @see ftl.impl.FtlPackageImpl#getSharpen()
 	 * @generated
 	 */
-	int SHARPEN = 11;
+	int SHARPEN = 9;
 
 	/**
 	 * The number of structural features of the '<em>Sharpen</em>' class.
@@ -454,6 +468,242 @@ public interface FtlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHARPEN_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.InputImpl <em>Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.InputImpl
+	 * @see ftl.impl.FtlPackageImpl#getInput()
+	 * @generated
+	 */
+	int INPUT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__PATH = 0;
+
+	/**
+	 * The number of structural features of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__PATH = INPUT__PATH;
+
+	/**
+	 * The number of structural features of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO__PATH = INPUT__PATH;
+
+	/**
+	 * The number of structural features of the '<em>Audio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Audio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Negate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Negate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATE_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Delay</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECHO__DELAY = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Echo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECHO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Echo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECHO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Mix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIX_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIX_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__TIME = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END__TIME = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>End</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>End</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ftl.impl.ConcatImpl <em>Concat</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ftl.impl.ConcatImpl
+	 * @see ftl.impl.FtlPackageImpl#getConcat()
+	 * @generated
+	 */
+	int CONCAT = 18;
+
+	/**
+	 * The number of structural features of the '<em>Concat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCAT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Concat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCAT_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link ftl.Program <em>Program</em>}'.
@@ -509,6 +759,17 @@ public interface FtlPackage extends EPackage {
 	EAttribute getTransform_Output();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ftl.Transform#getInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input</em>'.
+	 * @see ftl.Transform#getInput()
+	 * @see #getTransform()
+	 * @generated
+	 */
+	EReference getTransform_Input();
+
+	/**
 	 * Returns the meta object for class '{@link ftl.Instruction <em>Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,14 +811,25 @@ public interface FtlPackage extends EPackage {
 	EAttribute getBlur_Radius();
 
 	/**
-	 * Returns the meta object for class '{@link ftl.frames <em>frames</em>}'.
+	 * Returns the meta object for class '{@link ftl.Fps <em>Fps</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>frames</em>'.
-	 * @see ftl.frames
+	 * @return the meta object for class '<em>Fps</em>'.
+	 * @see ftl.Fps
 	 * @generated
 	 */
-	EClass getframes();
+	EClass getFps();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.Fps#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ftl.Fps#getValue()
+	 * @see #getFps()
+	 * @generated
+	 */
+	EAttribute getFps_Value();
 
 	/**
 	 * Returns the meta object for class '{@link ftl.Video <em>Video</em>}'.
@@ -570,17 +842,6 @@ public interface FtlPackage extends EPackage {
 	EClass getVideo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ftl.Video#getInput <em>Input</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Input</em>'.
-	 * @see ftl.Video#getInput()
-	 * @see #getVideo()
-	 * @generated
-	 */
-	EAttribute getVideo_Input();
-
-	/**
 	 * Returns the meta object for class '{@link ftl.Audio <em>Audio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -591,15 +852,97 @@ public interface FtlPackage extends EPackage {
 	EClass getAudio();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ftl.Audio#getInput <em>Input</em>}'.
+	 * Returns the meta object for class '{@link ftl.Negate <em>Negate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Input</em>'.
-	 * @see ftl.Audio#getInput()
-	 * @see #getAudio()
+	 * @return the meta object for class '<em>Negate</em>'.
+	 * @see ftl.Negate
 	 * @generated
 	 */
-	EAttribute getAudio_Input();
+	EClass getNegate();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Echo <em>Echo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Echo</em>'.
+	 * @see ftl.Echo
+	 * @generated
+	 */
+	EClass getEcho();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.Echo#getDelay <em>Delay</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Delay</em>'.
+	 * @see ftl.Echo#getDelay()
+	 * @see #getEcho()
+	 * @generated
+	 */
+	EAttribute getEcho_Delay();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Mix <em>Mix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mix</em>'.
+	 * @see ftl.Mix
+	 * @generated
+	 */
+	EClass getMix();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Start <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start</em>'.
+	 * @see ftl.Start
+	 * @generated
+	 */
+	EClass getStart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.Start#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time</em>'.
+	 * @see ftl.Start#getTime()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EAttribute getStart_Time();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.End <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>End</em>'.
+	 * @see ftl.End
+	 * @generated
+	 */
+	EClass getEnd();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ftl.End#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time</em>'.
+	 * @see ftl.End#getTime()
+	 * @see #getEnd()
+	 * @generated
+	 */
+	EAttribute getEnd_Time();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Concat <em>Concat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Concat</em>'.
+	 * @see ftl.Concat
+	 * @generated
+	 */
+	EClass getConcat();
 
 	/**
 	 * Returns the meta object for class '{@link ftl.Grayscale <em>Grayscale</em>}'.
@@ -651,6 +994,27 @@ public interface FtlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSharpen();
+
+	/**
+	 * Returns the meta object for class '{@link ftl.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input</em>'.
+	 * @see ftl.Input
+	 * @generated
+	 */
+	EClass getInput();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ftl.Input#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Path</em>'.
+	 * @see ftl.Input#getPath()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_Path();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -720,6 +1084,14 @@ public interface FtlPackage extends EPackage {
 		EAttribute TRANSFORM__OUTPUT = eINSTANCE.getTransform_Output();
 
 		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSFORM__INPUT = eINSTANCE.getTransform_Input();
+
+		/**
 		 * The meta object literal for the '{@link ftl.impl.InstructionImpl <em>Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -758,14 +1130,22 @@ public interface FtlPackage extends EPackage {
 		EAttribute BLUR__RADIUS = eINSTANCE.getBlur_Radius();
 
 		/**
-		 * The meta object literal for the '{@link ftl.impl.framesImpl <em>frames</em>}' class.
+		 * The meta object literal for the '{@link ftl.impl.FpsImpl <em>Fps</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ftl.impl.framesImpl
-		 * @see ftl.impl.FtlPackageImpl#getframes()
+		 * @see ftl.impl.FpsImpl
+		 * @see ftl.impl.FtlPackageImpl#getFps()
 		 * @generated
 		 */
-		EClass FRAMES = eINSTANCE.getframes();
+		EClass FPS = eINSTANCE.getFps();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FPS__VALUE = eINSTANCE.getFps_Value();
 
 		/**
 		 * The meta object literal for the '{@link ftl.impl.VideoImpl <em>Video</em>}' class.
@@ -778,14 +1158,6 @@ public interface FtlPackage extends EPackage {
 		EClass VIDEO = eINSTANCE.getVideo();
 
 		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VIDEO__INPUT = eINSTANCE.getVideo_Input();
-
-		/**
 		 * The meta object literal for the '{@link ftl.impl.AudioImpl <em>Audio</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -796,12 +1168,88 @@ public interface FtlPackage extends EPackage {
 		EClass AUDIO = eINSTANCE.getAudio();
 
 		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
+		 * The meta object literal for the '{@link ftl.impl.NegateImpl <em>Negate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.NegateImpl
+		 * @see ftl.impl.FtlPackageImpl#getNegate()
+		 * @generated
+		 */
+		EClass NEGATE = eINSTANCE.getNegate();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.EchoImpl <em>Echo</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.EchoImpl
+		 * @see ftl.impl.FtlPackageImpl#getEcho()
+		 * @generated
+		 */
+		EClass ECHO = eINSTANCE.getEcho();
+
+		/**
+		 * The meta object literal for the '<em><b>Delay</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AUDIO__INPUT = eINSTANCE.getAudio_Input();
+		EAttribute ECHO__DELAY = eINSTANCE.getEcho_Delay();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.MixImpl <em>Mix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.MixImpl
+		 * @see ftl.impl.FtlPackageImpl#getMix()
+		 * @generated
+		 */
+		EClass MIX = eINSTANCE.getMix();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.StartImpl <em>Start</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.StartImpl
+		 * @see ftl.impl.FtlPackageImpl#getStart()
+		 * @generated
+		 */
+		EClass START = eINSTANCE.getStart();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute START__TIME = eINSTANCE.getStart_Time();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.EndImpl <em>End</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.EndImpl
+		 * @see ftl.impl.FtlPackageImpl#getEnd()
+		 * @generated
+		 */
+		EClass END = eINSTANCE.getEnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute END__TIME = eINSTANCE.getEnd_Time();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.ConcatImpl <em>Concat</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.ConcatImpl
+		 * @see ftl.impl.FtlPackageImpl#getConcat()
+		 * @generated
+		 */
+		EClass CONCAT = eINSTANCE.getConcat();
 
 		/**
 		 * The meta object literal for the '{@link ftl.impl.GrayscaleImpl <em>Grayscale</em>}' class.
@@ -850,6 +1298,24 @@ public interface FtlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHARPEN = eINSTANCE.getSharpen();
+
+		/**
+		 * The meta object literal for the '{@link ftl.impl.InputImpl <em>Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ftl.impl.InputImpl
+		 * @see ftl.impl.FtlPackageImpl#getInput()
+		 * @generated
+		 */
+		EClass INPUT = eINSTANCE.getInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__PATH = eINSTANCE.getInput_Path();
 
 	}
 

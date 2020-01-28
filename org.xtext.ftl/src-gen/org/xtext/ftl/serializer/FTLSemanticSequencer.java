@@ -6,13 +6,20 @@ package org.xtext.ftl.serializer;
 import com.google.inject.Inject;
 import ftl.Audio;
 import ftl.Blur;
+import ftl.Concat;
+import ftl.Echo;
+import ftl.End;
+import ftl.Fps;
 import ftl.FtlPackage;
 import ftl.Grayscale;
+import ftl.Mix;
+import ftl.Negate;
 import ftl.Program;
 import ftl.Reverse;
 import ftl.Scale;
 import ftl.Sepia;
 import ftl.Sharpen;
+import ftl.Start;
 import ftl.Transform;
 import ftl.Video;
 import java.util.Set;
@@ -47,8 +54,26 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FtlPackage.BLUR:
 				sequence_Blur(context, (Blur) semanticObject); 
 				return; 
+			case FtlPackage.CONCAT:
+				sequence_Concat(context, (Concat) semanticObject); 
+				return; 
+			case FtlPackage.ECHO:
+				sequence_Echo(context, (Echo) semanticObject); 
+				return; 
+			case FtlPackage.END:
+				sequence_End(context, (End) semanticObject); 
+				return; 
+			case FtlPackage.FPS:
+				sequence_Fps(context, (Fps) semanticObject); 
+				return; 
 			case FtlPackage.GRAYSCALE:
 				sequence_Grayscale(context, (Grayscale) semanticObject); 
+				return; 
+			case FtlPackage.MIX:
+				sequence_Mix(context, (Mix) semanticObject); 
+				return; 
+			case FtlPackage.NEGATE:
+				sequence_Negate(context, (Negate) semanticObject); 
 				return; 
 			case FtlPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
@@ -65,6 +90,9 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FtlPackage.SHARPEN:
 				sequence_Sharpen(context, (Sharpen) semanticObject); 
 				return; 
+			case FtlPackage.START:
+				sequence_Start(context, (Start) semanticObject); 
+				return; 
 			case FtlPackage.TRANSFORM:
 				sequence_Transform(context, (Transform) semanticObject); 
 				return; 
@@ -78,20 +106,14 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns Audio
+	 *     Input returns Audio
 	 *     Audio returns Audio
 	 *
 	 * Constraint:
-	 *     input=STRING
+	 *     (path+=STRING path+=STRING*)
 	 */
 	protected void sequence_Audio(ISerializationContext context, Audio semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.AUDIO__INPUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.AUDIO__INPUT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAudioAccess().getInputSTRINGTerminalRuleCall_1_0(), semanticObject.getInput());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -109,7 +131,77 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.BLUR__RADIUS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBlurAccess().getRadiusINTTerminalRuleCall_1_0(), semanticObject.getRadius());
+		feeder.accept(grammarAccess.getBlurAccess().getRadiusINTTerminalRuleCall_2_0(), semanticObject.getRadius());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Concat
+	 *     Concat returns Concat
+	 *
+	 * Constraint:
+	 *     {Concat}
+	 */
+	protected void sequence_Concat(ISerializationContext context, Concat semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Echo
+	 *     Echo returns Echo
+	 *
+	 * Constraint:
+	 *     delay=INT
+	 */
+	protected void sequence_Echo(ISerializationContext context, Echo semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.ECHO__DELAY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.ECHO__DELAY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEchoAccess().getDelayINTTerminalRuleCall_2_0(), semanticObject.getDelay());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns End
+	 *     End returns End
+	 *
+	 * Constraint:
+	 *     time=Float
+	 */
+	protected void sequence_End(ISerializationContext context, End semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.END__TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.END__TIME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEndAccess().getTimeFloatParserRuleCall_2_0(), semanticObject.getTime());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Fps
+	 *     Fps returns Fps
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_Fps(ISerializationContext context, Fps semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.FPS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.FPS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFpsAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -123,6 +215,32 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     {Grayscale}
 	 */
 	protected void sequence_Grayscale(ISerializationContext context, Grayscale semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Mix
+	 *     Mix returns Mix
+	 *
+	 * Constraint:
+	 *     {Mix}
+	 */
+	protected void sequence_Mix(ISerializationContext context, Mix semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Negate
+	 *     Negate returns Negate
+	 *
+	 * Constraint:
+	 *     {Negate}
+	 */
+	protected void sequence_Negate(ISerializationContext context, Negate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -199,10 +317,29 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Start
+	 *     Start returns Start
+	 *
+	 * Constraint:
+	 *     time=Float
+	 */
+	protected void sequence_Start(ISerializationContext context, Start semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.START__TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.START__TIME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStartAccess().getTimeFloatParserRuleCall_2_0(), semanticObject.getTime());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Transform returns Transform
 	 *
 	 * Constraint:
-	 *     (output=STRING instruction+=Instruction*)
+	 *     (input+=Input input+=Input* instruction+=Instruction* output=STRING)
 	 */
 	protected void sequence_Transform(ISerializationContext context, Transform semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -211,20 +348,14 @@ public class FTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns Video
+	 *     Input returns Video
 	 *     Video returns Video
 	 *
 	 * Constraint:
-	 *     input=STRING
+	 *     (path+=STRING path+=STRING*)
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FtlPackage.Literals.VIDEO__INPUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FtlPackage.Literals.VIDEO__INPUT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVideoAccess().getInputSTRINGTerminalRuleCall_1_0(), semanticObject.getInput());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

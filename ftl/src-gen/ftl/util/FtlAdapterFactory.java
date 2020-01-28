@@ -92,18 +92,8 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseframes(frames object) {
-			return createframesAdapter();
-		}
-
-		@Override
-		public Adapter caseVideo(Video object) {
-			return createVideoAdapter();
-		}
-
-		@Override
-		public Adapter caseAudio(Audio object) {
-			return createAudioAdapter();
+		public Adapter caseFps(Fps object) {
+			return createFpsAdapter();
 		}
 
 		@Override
@@ -124,6 +114,51 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseSharpen(Sharpen object) {
 			return createSharpenAdapter();
+		}
+
+		@Override
+		public Adapter caseInput(Input object) {
+			return createInputAdapter();
+		}
+
+		@Override
+		public Adapter caseVideo(Video object) {
+			return createVideoAdapter();
+		}
+
+		@Override
+		public Adapter caseAudio(Audio object) {
+			return createAudioAdapter();
+		}
+
+		@Override
+		public Adapter caseNegate(Negate object) {
+			return createNegateAdapter();
+		}
+
+		@Override
+		public Adapter caseEcho(Echo object) {
+			return createEchoAdapter();
+		}
+
+		@Override
+		public Adapter caseMix(Mix object) {
+			return createMixAdapter();
+		}
+
+		@Override
+		public Adapter caseStart(Start object) {
+			return createStartAdapter();
+		}
+
+		@Override
+		public Adapter caseEnd(End object) {
+			return createEndAdapter();
+		}
+
+		@Override
+		public Adapter caseConcat(Concat object) {
+			return createConcatAdapter();
 		}
 
 		@Override
@@ -216,16 +251,16 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ftl.frames <em>frames</em>}'.
+	 * Creates a new adapter for an object of class '{@link ftl.Fps <em>Fps</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ftl.frames
+	 * @see ftl.Fps
 	 * @generated
 	 */
-	public Adapter createframesAdapter() {
+	public Adapter createFpsAdapter() {
 		return null;
 	}
 
@@ -254,6 +289,90 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAudioAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Negate <em>Negate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Negate
+	 * @generated
+	 */
+	public Adapter createNegateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Echo <em>Echo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Echo
+	 * @generated
+	 */
+	public Adapter createEchoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Mix <em>Mix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Mix
+	 * @generated
+	 */
+	public Adapter createMixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Start <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Start
+	 * @generated
+	 */
+	public Adapter createStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.End <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.End
+	 * @generated
+	 */
+	public Adapter createEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Concat <em>Concat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Concat
+	 * @generated
+	 */
+	public Adapter createConcatAdapter() {
 		return null;
 	}
 
@@ -310,6 +429,20 @@ public class FtlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSharpenAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ftl.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ftl.Input
+	 * @generated
+	 */
+	public Adapter createInputAdapter() {
 		return null;
 	}
 

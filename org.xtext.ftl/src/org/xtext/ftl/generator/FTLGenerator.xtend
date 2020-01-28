@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import ftl.*
+import java.util.Random
 
 /**
  * Generates code from your model files on save.
@@ -30,11 +31,26 @@ class FTLGenerator extends AbstractGenerator {
 	'''
 
 	def dispatch compile(Transform transform) '''
-	ffmpeg -y -filter_complex "
-	«FOR instruction : transform.instruction SEPARATOR ',' »
+	ffmpeg \
+	«FOR input : transform.input»
+		-i «input.path. get(new Random().nextInt(input.path.size()))» \
+	«ENDFOR»
+	«var i = 0»
+	«FOR input : transform.input»
+		«IF input instanceof Audio»
+			-map «i++»:a \
+		«ENDIF»
+		«IF input instanceof Video»
+			-map «i++»:v \
+		«ENDIF»
+	«ENDFOR»
+	«IF transform.instruction.size() > 0»
+		-y -filter_complex "
+	«ENDIF»
+	«FOR instruction : transform.instruction SEPARATOR ',' AFTER '"'»
 		«instruction.compile»
 	«ENDFOR»
-	" «transform.output»;
+	 «transform.output»;
 	'''
 	
 	def dispatch compile(Sepia sepia) '''
@@ -45,14 +61,6 @@ class FTLGenerator extends AbstractGenerator {
 	hue=s=0
 	'''
 	
-	def dispatch compile(Video video) '''
-	movie=«video.input»
-	'''
-	
-	def dispatch compile(Audio audio) '''
-	audio=«audio.input»
-	'''
-	
 	def dispatch compile(Sharpen sharpen) '''
 	convolution=\"0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0:0 -1 0 -1 5 -1 0 -1 0\"
 	'''
@@ -61,8 +69,39 @@ class FTLGenerator extends AbstractGenerator {
 	reverse
 	'''
 	
+	def dispatch compile(Blur blur) '''
+	avgblur=sizeX=«blur.radius»
+	'''
+	
 	def dispatch compile(Scale scale) '''
 	scale=w=«scale.factor»*iw:h=«scale.factor»*ih
 	'''
 	
+	def dispatch compile(Start start) '''
+	trim=start=«start.time»
+	'''
+	
+	def dispatch compile(End end) '''
+	trim=end=«end.time»
+	'''
+	
+	def dispatch compile(Mix mix) '''
+	mix
+	'''
+	
+	def dispatch compile(Echo echo) '''
+	aecho=0.6:0.3:«echo.delay»:0.5
+	'''
+	
+	def dispatch compile(Negate negate) '''
+	negate
+	'''
+	
+	def dispatch compile(Fps fps) '''
+	fps=fps=«fps.value»
+	'''
+	
+	def dispatch compile(Concat concat) '''
+	concat
+	'''
 }

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ftl.Transform#getInstruction <em>Instruction</em>}</li>
  *   <li>{@link ftl.Transform#getOutput <em>Output</em>}</li>
+ *   <li>{@link ftl.Transform#getInput <em>Input</em>}</li>
  * </ul>
  *
  * @see ftl.FtlPackage#getTransform()
@@ -57,5 +58,17 @@ public interface Transform extends EObject {
 	 * @generated
 	 */
 	void setOutput(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
+	 * The list contents are of type {@link ftl.Input}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input</em>' containment reference list.
+	 * @see ftl.FtlPackage#getTransform_Input()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Input> getInput();
 
 } // Transform

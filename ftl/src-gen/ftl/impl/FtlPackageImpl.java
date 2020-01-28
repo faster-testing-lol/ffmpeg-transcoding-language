@@ -4,19 +4,25 @@ package ftl.impl;
 
 import ftl.Audio;
 import ftl.Blur;
+import ftl.Concat;
+import ftl.Echo;
+import ftl.End;
+import ftl.Fps;
 import ftl.FtlFactory;
 import ftl.FtlPackage;
 import ftl.Grayscale;
+import ftl.Input;
 import ftl.Instruction;
+import ftl.Mix;
+import ftl.Negate;
 import ftl.Program;
 import ftl.Reverse;
 import ftl.Scale;
 import ftl.Sepia;
 import ftl.Sharpen;
+import ftl.Start;
 import ftl.Transform;
 import ftl.Video;
-import ftl.frames;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -71,7 +77,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass framesEClass = null;
+	private EClass fpsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,6 +92,48 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	private EClass audioEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass negateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass echoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass startEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass concatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,6 +162,13 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	private EClass sharpenEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -235,6 +290,16 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getTransform_Input() {
+		return (EReference) transformEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInstruction() {
 		return instructionEClass;
 	}
@@ -275,8 +340,18 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getframes() {
-		return framesEClass;
+	public EClass getFps() {
+		return fpsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getFps_Value() {
+		return (EAttribute) fpsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -295,16 +370,6 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getVideo_Input() {
-		return (EAttribute) videoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getAudio() {
 		return audioEClass;
 	}
@@ -315,8 +380,88 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAudio_Input() {
-		return (EAttribute) audioEClass.getEStructuralFeatures().get(0);
+	public EClass getNegate() {
+		return negateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEcho() {
+		return echoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEcho_Delay() {
+		return (EAttribute) echoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMix() {
+		return mixEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStart() {
+		return startEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStart_Time() {
+		return (EAttribute) startEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEnd() {
+		return endEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEnd_Time() {
+		return (EAttribute) endEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getConcat() {
+		return concatEClass;
 	}
 
 	/**
@@ -375,6 +520,26 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getInput() {
+		return inputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getInput_Path() {
+		return (EAttribute) inputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FtlFactory getFtlFactory() {
 		return (FtlFactory) getEFactoryInstance();
 	}
@@ -405,6 +570,7 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		transformEClass = createEClass(TRANSFORM);
 		createEReference(transformEClass, TRANSFORM__INSTRUCTION);
 		createEAttribute(transformEClass, TRANSFORM__OUTPUT);
+		createEReference(transformEClass, TRANSFORM__INPUT);
 
 		instructionEClass = createEClass(INSTRUCTION);
 
@@ -413,13 +579,8 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		blurEClass = createEClass(BLUR);
 		createEAttribute(blurEClass, BLUR__RADIUS);
 
-		framesEClass = createEClass(FRAMES);
-
-		videoEClass = createEClass(VIDEO);
-		createEAttribute(videoEClass, VIDEO__INPUT);
-
-		audioEClass = createEClass(AUDIO);
-		createEAttribute(audioEClass, AUDIO__INPUT);
+		fpsEClass = createEClass(FPS);
+		createEAttribute(fpsEClass, FPS__VALUE);
 
 		grayscaleEClass = createEClass(GRAYSCALE);
 
@@ -429,6 +590,28 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		createEAttribute(scaleEClass, SCALE__FACTOR);
 
 		sharpenEClass = createEClass(SHARPEN);
+
+		inputEClass = createEClass(INPUT);
+		createEAttribute(inputEClass, INPUT__PATH);
+
+		videoEClass = createEClass(VIDEO);
+
+		audioEClass = createEClass(AUDIO);
+
+		negateEClass = createEClass(NEGATE);
+
+		echoEClass = createEClass(ECHO);
+		createEAttribute(echoEClass, ECHO__DELAY);
+
+		mixEClass = createEClass(MIX);
+
+		startEClass = createEClass(START);
+		createEAttribute(startEClass, START__TIME);
+
+		endEClass = createEClass(END);
+		createEAttribute(endEClass, END__TIME);
+
+		concatEClass = createEClass(CONCAT);
 	}
 
 	/**
@@ -462,13 +645,19 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		// Add supertypes to classes
 		sepiaEClass.getESuperTypes().add(this.getInstruction());
 		blurEClass.getESuperTypes().add(this.getInstruction());
-		framesEClass.getESuperTypes().add(this.getInstruction());
-		videoEClass.getESuperTypes().add(this.getInstruction());
-		audioEClass.getESuperTypes().add(this.getInstruction());
+		fpsEClass.getESuperTypes().add(this.getInstruction());
 		grayscaleEClass.getESuperTypes().add(this.getInstruction());
 		reverseEClass.getESuperTypes().add(this.getInstruction());
 		scaleEClass.getESuperTypes().add(this.getInstruction());
 		sharpenEClass.getESuperTypes().add(this.getInstruction());
+		videoEClass.getESuperTypes().add(this.getInput());
+		audioEClass.getESuperTypes().add(this.getInput());
+		negateEClass.getESuperTypes().add(this.getInstruction());
+		echoEClass.getESuperTypes().add(this.getInstruction());
+		mixEClass.getESuperTypes().add(this.getInstruction());
+		startEClass.getESuperTypes().add(this.getInstruction());
+		endEClass.getESuperTypes().add(this.getInstruction());
+		concatEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -483,6 +672,9 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransform_Output(), ecorePackage.getEString(), "output", null, 0, 1, Transform.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransform_Input(), this.getInput(), null, "input", null, 1, -1, Transform.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -493,14 +685,8 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 		initEAttribute(getBlur_Radius(), ecorePackage.getEInt(), "radius", null, 0, 1, Blur.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(framesEClass, frames.class, "frames", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVideo_Input(), ecorePackage.getEString(), "input", null, 0, 1, Video.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(audioEClass, Audio.class, "Audio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAudio_Input(), ecorePackage.getEString(), "input", null, 0, 1, Audio.class, !IS_TRANSIENT,
+		initEClass(fpsEClass, Fps.class, "Fps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFps_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Fps.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(grayscaleEClass, Grayscale.class, "Grayscale", !IS_ABSTRACT, !IS_INTERFACE,
@@ -513,6 +699,32 @@ public class FtlPackageImpl extends EPackageImpl implements FtlPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sharpenEClass, Sharpen.class, "Sharpen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInput_Path(), ecorePackage.getEString(), "path", null, 1, 10, Input.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(audioEClass, Audio.class, "Audio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(negateEClass, Negate.class, "Negate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(echoEClass, Echo.class, "Echo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEcho_Delay(), ecorePackage.getEInt(), "delay", null, 0, 1, Echo.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mixEClass, Mix.class, "Mix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStart_Time(), ecorePackage.getEFloat(), "time", null, 0, 1, Start.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(endEClass, End.class, "End", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnd_Time(), ecorePackage.getEFloat(), "time", null, 0, 1, End.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(concatEClass, Concat.class, "Concat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -105,29 +105,11 @@ public class FtlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case FtlPackage.FRAMES: {
-			frames frames = (frames) theEObject;
-			T result = caseframes(frames);
+		case FtlPackage.FPS: {
+			Fps fps = (Fps) theEObject;
+			T result = caseFps(fps);
 			if (result == null)
-				result = caseInstruction(frames);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.VIDEO: {
-			Video video = (Video) theEObject;
-			T result = caseVideo(video);
-			if (result == null)
-				result = caseInstruction(video);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case FtlPackage.AUDIO: {
-			Audio audio = (Audio) theEObject;
-			T result = caseAudio(audio);
-			if (result == null)
-				result = caseInstruction(audio);
+				result = caseInstruction(fps);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -164,6 +146,85 @@ public class FtlSwitch<T> extends Switch<T> {
 			T result = caseSharpen(sharpen);
 			if (result == null)
 				result = caseInstruction(sharpen);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.INPUT: {
+			Input input = (Input) theEObject;
+			T result = caseInput(input);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.VIDEO: {
+			Video video = (Video) theEObject;
+			T result = caseVideo(video);
+			if (result == null)
+				result = caseInput(video);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.AUDIO: {
+			Audio audio = (Audio) theEObject;
+			T result = caseAudio(audio);
+			if (result == null)
+				result = caseInput(audio);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.NEGATE: {
+			Negate negate = (Negate) theEObject;
+			T result = caseNegate(negate);
+			if (result == null)
+				result = caseInstruction(negate);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.ECHO: {
+			Echo echo = (Echo) theEObject;
+			T result = caseEcho(echo);
+			if (result == null)
+				result = caseInstruction(echo);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.MIX: {
+			Mix mix = (Mix) theEObject;
+			T result = caseMix(mix);
+			if (result == null)
+				result = caseInstruction(mix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.START: {
+			Start start = (Start) theEObject;
+			T result = caseStart(start);
+			if (result == null)
+				result = caseInstruction(start);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.END: {
+			End end = (End) theEObject;
+			T result = caseEnd(end);
+			if (result == null)
+				result = caseInstruction(end);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case FtlPackage.CONCAT: {
+			Concat concat = (Concat) theEObject;
+			T result = caseConcat(concat);
+			if (result == null)
+				result = caseInstruction(concat);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -249,17 +310,17 @@ public class FtlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>frames</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Fps</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>frames</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Fps</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseframes(frames object) {
+	public T caseFps(Fps object) {
 		return null;
 	}
 
@@ -290,6 +351,96 @@ public class FtlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAudio(Audio object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Negate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Negate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNegate(Negate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Echo</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Echo</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEcho(Echo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMix(Mix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStart(Start object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnd(End object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Concat</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Concat</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConcat(Concat object) {
 		return null;
 	}
 
@@ -350,6 +501,21 @@ public class FtlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSharpen(Sharpen object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInput(Input object) {
 		return null;
 	}
 

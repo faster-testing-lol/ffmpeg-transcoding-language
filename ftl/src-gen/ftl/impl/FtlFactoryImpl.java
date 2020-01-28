@@ -63,12 +63,8 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 			return createSepia();
 		case FtlPackage.BLUR:
 			return createBlur();
-		case FtlPackage.FRAMES:
-			return createframes();
-		case FtlPackage.VIDEO:
-			return createVideo();
-		case FtlPackage.AUDIO:
-			return createAudio();
+		case FtlPackage.FPS:
+			return createFps();
 		case FtlPackage.GRAYSCALE:
 			return createGrayscale();
 		case FtlPackage.REVERSE:
@@ -77,6 +73,22 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 			return createScale();
 		case FtlPackage.SHARPEN:
 			return createSharpen();
+		case FtlPackage.VIDEO:
+			return createVideo();
+		case FtlPackage.AUDIO:
+			return createAudio();
+		case FtlPackage.NEGATE:
+			return createNegate();
+		case FtlPackage.ECHO:
+			return createEcho();
+		case FtlPackage.MIX:
+			return createMix();
+		case FtlPackage.START:
+			return createStart();
+		case FtlPackage.END:
+			return createEnd();
+		case FtlPackage.CONCAT:
+			return createConcat();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,9 +144,9 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	 * @generated
 	 */
 	@Override
-	public frames createframes() {
-		framesImpl frames = new framesImpl();
-		return frames;
+	public Fps createFps() {
+		FpsImpl fps = new FpsImpl();
+		return fps;
 	}
 
 	/**
@@ -157,6 +169,72 @@ public class FtlFactoryImpl extends EFactoryImpl implements FtlFactory {
 	public Audio createAudio() {
 		AudioImpl audio = new AudioImpl();
 		return audio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Negate createNegate() {
+		NegateImpl negate = new NegateImpl();
+		return negate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Echo createEcho() {
+		EchoImpl echo = new EchoImpl();
+		return echo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Mix createMix() {
+		MixImpl mix = new MixImpl();
+		return mix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Start createStart() {
+		StartImpl start = new StartImpl();
+		return start;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public End createEnd() {
+		EndImpl end = new EndImpl();
+		return end;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Concat createConcat() {
+		ConcatImpl concat = new ConcatImpl();
+		return concat;
 	}
 
 	/**

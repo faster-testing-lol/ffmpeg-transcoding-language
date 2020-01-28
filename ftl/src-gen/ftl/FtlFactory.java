@@ -58,13 +58,13 @@ public interface FtlFactory extends EFactory {
 	Blur createBlur();
 
 	/**
-	 * Returns a new object of class '<em>frames</em>'.
+	 * Returns a new object of class '<em>Fps</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>frames</em>'.
+	 * @return a new object of class '<em>Fps</em>'.
 	 * @generated
 	 */
-	frames createframes();
+	Fps createFps();
 
 	/**
 	 * Returns a new object of class '<em>Video</em>'.
@@ -83,6 +83,60 @@ public interface FtlFactory extends EFactory {
 	 * @generated
 	 */
 	Audio createAudio();
+
+	/**
+	 * Returns a new object of class '<em>Negate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Negate</em>'.
+	 * @generated
+	 */
+	Negate createNegate();
+
+	/**
+	 * Returns a new object of class '<em>Echo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Echo</em>'.
+	 * @generated
+	 */
+	Echo createEcho();
+
+	/**
+	 * Returns a new object of class '<em>Mix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mix</em>'.
+	 * @generated
+	 */
+	Mix createMix();
+
+	/**
+	 * Returns a new object of class '<em>Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Start</em>'.
+	 * @generated
+	 */
+	Start createStart();
+
+	/**
+	 * Returns a new object of class '<em>End</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>End</em>'.
+	 * @generated
+	 */
+	End createEnd();
+
+	/**
+	 * Returns a new object of class '<em>Concat</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concat</em>'.
+	 * @generated
+	 */
+	Concat createConcat();
 
 	/**
 	 * Returns a new object of class '<em>Grayscale</em>'.
